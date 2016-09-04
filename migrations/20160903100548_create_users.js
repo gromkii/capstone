@@ -4,7 +4,11 @@ exports.up = function(knex, Promise) {
     table.increment().primary().index(),
     table.string('username'),
     table.string('email'),
-    table.text('avatar_url');
+    table.text('avatar_url'),
+    table.string('full_name'),
+    table.text('password'),
+    table.string('location'),
+    table.timestamps();
   }
 };
 
