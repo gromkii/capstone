@@ -9,6 +9,13 @@ module.exports = {
     }
   },
 
+  testing: {
+    client:'postgresql',
+    connection: {
+      database: 'capstone_test'
+    }
+  },
+
   staging: {
     client: 'postgresql',
     connection: {
