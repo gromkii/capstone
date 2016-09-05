@@ -1,5 +1,30 @@
 @import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,500i,700";
 body {
-  color: red; }
+  background-color: #4a4a4a; }
+
+.jumbotron {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  position: relative;
+  background-color: #3e3e3e;
+  color: #F9F9F9;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.55);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5); }
+  .jumbotron .purp {
+    color: #AD5BF5; }
+  .jumbotron .play {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4em;
+    font-weight: 100; }
+
+.headline {
+  margin-top: -90px;
+  padding-bottom: 50px; }
+
+.sublanding {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  color: #f9f9f9;
+  margin: 0 150px; }
 
 /*# sourceMappingURL=style.css.map */

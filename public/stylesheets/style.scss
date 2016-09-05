@@ -1,8 +1,41 @@
 @import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,500i,700';
 
 $rale: 'Raleway', sans-serif;
-$play: 'Playfair Display', serif; 
+$play: 'Playfair Display', serif;
+$background:#3e3e3e;
+$text: #f9f9f9;
+$purp: #AD5BF5;
 
-body {
-  color:red;
+body{
+  background-color: #4a4a4a;
+}
+
+.jumbotron {
+  font-family: $rale;
+  font-weight:bold;
+  position: relative;
+  background-color:$background;
+  color: #F9F9F9;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.55);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+  .purp {
+    color:$purp;
+  }
+  .play {
+    font-family: $play;
+    font-size:1.4em;
+    font-weight: 100;
+  }
+}
+
+.headline {
+  margin-top: -90px;
+  padding-bottom:50px;
+}
+
+.sublanding {
+  text-align:center;
+  font-family:$play;
+  color:$text;
+  margin:0 150px;
 }

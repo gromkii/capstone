@@ -40,5 +40,9 @@ user_events
 user_activity
   user_id:int
   event_id:int
-  
 
+session_desc
+  session_name:string
+  desc:text
+  category: FK?
+  game_name:string
