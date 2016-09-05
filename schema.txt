@@ -1,0 +1,44 @@
+users
+  first:string
+  last:string
+  email:string
+  username:string
+  pass:text
+  about_me:text
+  avatar_url:text
+  ?dob:Date?
+  location:string
+
+user_roles
+  id:int
+  role:string
+
+  [
+    1: admin
+    2: moderator
+    3: user
+  ]
+
+user_groups
+  user_id:int
+  role_id:int
+
+user_friends
+  user_id:int
+  friend_id:int
+
+user_events
+  id:int
+  event:string
+
+  [
+    1: "User joined new session."
+    2: "User posted new session."
+    3: "User made annoucement/post."
+  ]
+
+user_activity
+  user_id:int
+  event_id:int
+  
+

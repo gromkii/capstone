@@ -22,13 +22,15 @@ describe('User API Calls', ()=>{
     })
   })
 
-  it('Should return list of users.', done => {
+  it('Should return array.', done => {
     request
       .get('/api/users/')
       .expect(200)
       .end((err, res) => {
-        console.log(res.body);
+        var users = res.body;
+        expect(Array.isArray(users)).to.eq(true);
+        expect(users.length).to.eq(3);
         done();
       });
   });
-})
+});
