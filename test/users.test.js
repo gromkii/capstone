@@ -6,11 +6,19 @@ var expect  = require('chai').expect,
 
 // Start writing tests.
 describe('User API Calls', ()=>{
-  beforeAll(done => {
+  before(done => {
     knex.migrate.rollback().then(()=>{
       knex.migrate.latest().then(()=>{
-        knex.seed.run()
+        knex.seed.run().then(()=> {
+          done();
+        })
       })
+    })
+  })
+
+  after(done => {
+    knex.migrate.rollback().then(()=>{
+      done()
     })
   })
 
@@ -19,6 +27,7 @@ describe('User API Calls', ()=>{
       .get('/api/users/')
       .expect(200)
       .end((err, res) => {
+        console.log(res.body);
         done();
       });
   });
