@@ -32,5 +32,5 @@ describe('User API Calls', ()=>{
         expect(users.length).to.eq(3);
         done();
       });
-  });
+  })0;
 });
