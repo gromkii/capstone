@@ -7,11 +7,9 @@ var expect  = require('chai').expect,
 // Start writing tests.
 describe('User API Calls', ()=>{
   before(done => {
-    knex.migrate.rollback().then(()=>{
-      knex.migrate.latest().then(()=>{
-        knex.seed.run().then(()=> {
-          done();
-        })
+    knex.migrate.latest().then(()=>{
+      knex.seed.run().then(()=> {
+        done();
       })
     })
   })
@@ -32,5 +30,31 @@ describe('User API Calls', ()=>{
         expect(users.length).to.eq(3);
         done();
       });
-  })0;
+  });
+
+  it('Should register a new user.', done => {
+    let newUser = {
+      username:'placehold',
+      email:'test@email.com',
+      avatar_url:'placehold.it/250/bada55/ffffff',
+      full_name:'Frank Jeff',
+      password:'password',
+      location:'Austin, TX'
+    };
+
+    request
+      .post('/api/users')
+      .send(newUser)
+      .expect(200)
+      .end((err, res) => {
+        request
+          .get('/api/users')
+          .expect(200)
+          .end((err, res) => {
+            let users = res.body;
+            expect(users.length).to.eq(4);
+            done();
+          })
+      })
+  });
 });

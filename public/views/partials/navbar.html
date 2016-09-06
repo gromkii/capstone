@@ -31,13 +31,20 @@
        <h4 class="modal-title" id="loginModalLabel">Login</h4>
      </div>
      <div class="modal-body">
-       <form action="/api/user/new">
-         Write the form. 🐰
+       <form>
+         <fieldset class="form-group">
+           <label for="username">Username</label>
+           <input type="text" name="username" class="form-control">
+         </fieldset>
+         <fieldset class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+         </fieldset>
        </form>
      </div>
      <div class="modal-footer">
        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary purpback" data-dismiss="modal">Register</button>
+       <button type="button" class="btn btn-primary purpback" data-dismiss="modal">Login</button>
      </div>
    </div>
  </div>
@@ -54,8 +61,33 @@
        <h4 class="modal-title" id="registerModalLabel">Register New Account</h4>
      </div>
      <div class="modal-body">
-       <form action="/api/user/new">
-         Write the form. 🐰
+       <form action="/api/users/" method="POST">
+        <fieldset class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="full_name">Full Name</label>
+          <input type="text" class="form-control" name="full_name">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" name="location">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="avatar_url">Avatar URL</label>
+          <input type="text" class="form-control" name="avatar_url">
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary purpback">Submit</button>
        </form>
      </div>
      <div class="modal-footer">
