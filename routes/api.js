@@ -13,8 +13,6 @@ router.route('/users')
     var newUser = req.body,
         hash    = bcrypt.hashSync( newUser.password, 8);
 
-    console.log(newUser);
-
     new User({
       username:newUser.username,
       email:newUser.email,
@@ -25,6 +23,16 @@ router.route('/users')
     }).save().then(() => {
       res.redirect('/');
     });
+  });
+
+router.route('/users/:user_id')
+  .get((req, res) => {
+    User
+      .where('id', req.params.user_id)
+      .fetch()
+      .then( user => {
+        res.json(user.toJSON());
+      });
   });
 
 

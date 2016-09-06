@@ -57,4 +57,20 @@ describe('User API Calls', ()=>{
           })
       })
   });
+
+  it('Should login as a user.', done => {
+    var loginInfo = {
+      usernameField:'fmurray',
+      passwordField:'test'
+    }
+
+    request
+      .post('/auth/login')
+      .send(loginInfo)
+      .expect(200)
+      .end((err, res) => {
+
+        done();
+      })
+  })
 });

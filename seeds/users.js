@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           email:'email@mail.com',
           avatar_url:'http://fillmurray.com/200/200',
           full_name:'Fill Murray',
-          password:'test',
+          password:'$2a$08$HW7PiPKHDQU.8GMpSf2ZpelzDSA533KaFmlXyxWqOP1ZJMmHtkDvu',
           location:'Austin, TX',
           created_at:'2016-09-04T23:59:40+00:00',
           updated_at:'2016-09-04T23:59:40+00:00'
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
           email:'email@mail.com',
           avatar_url:'http://placecage.com/200/200',
           full_name:'Place Cage',
-          password:'test',
+          password:'$2a$08$HW7PiPKHDQU.8GMpSf2ZpelzDSA533KaFmlXyxWqOP1ZJMmHtkDvu',
           location:'Houston, TX',
           created_at:'2016-09-04T23:59:40+00:00',
           updated_at:'2016-09-04T23:59:40+00:00'
@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
           email:'email@mail.com',
           avatar_url:'http://stevensegallery.com/200/200',
           full_name:'Steven Segallery',
-          password:'test',
+          password:'$2a$08$HW7PiPKHDQU.8GMpSf2ZpelzDSA533KaFmlXyxWqOP1ZJMmHtkDvu',
           location:'Dallas, TX',
           created_at:'2016-09-04T23:59:40+00:00',
           updated_at:'2016-09-04T23:59:40+00:00'

@@ -2,11 +2,13 @@ var express        = require('express'),
     app            = express(),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
-    cookieSession  = require('cookie-session'),
     passport       = require('passport'),
+    cookieParser   = require('cookie-parser'),
   	LocalStrategy  = require('passport-local').Strategy,
+    bcrypt         = require('bcrypt'),
     api            = require('./routes/api.js'),
-    auth           = require('./routes/auth.js');
+    auth           = require('./routes/auth.js'),
+    User           = require('./models/user.js');
 
 // --- Middleware --- //
 app.use(bodyParser.json())
@@ -21,39 +23,32 @@ app.use(cookieSession({
 	name: 'session',
 	keys: [process.env.KEY1, process.env.KEY2]
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy({
-	usernameField: 'username',
-	passwordField: 'password',
-	session: false
-}, (username, password, done) => {
-	// Check id of user, retrieve row in users table.
-	Users().where('username', username)
-		.first()
-		.then( user => {
-			// compareSync the user's hashed password.
-			if (user && bcrypt.compareSync(password, user.password)){
-				// On match, return confirmation of session.
-				return done(null, user);
-			}
-			// Otherwise, return no session, redirect.
-			return done(null, false);
-		})
+passport.use(new LocalStrategy((username, password, done) => {
+  User
+    .where('username', username)
+    .fetch()
+    .then( user => {
+      user = user.toJSON();
+      if (bcrypt.compareSync(password, user.password)){
+        return(null, user);
+      }
+      return (null, false);
+    });
 }));
 
 passport.serializeUser(function(user, done) {
-	console.log(user);
 	done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  Users()
+  User()
 		.where('id', id)
 		.first()
 		.then( user => {
-
 			done(null, user);
 	});
 });

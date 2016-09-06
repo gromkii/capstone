@@ -4,9 +4,20 @@ var express = require('express'),
 
 router.route('/login')
   .post(passport.authenticate('local', {
-    failureRedirect: '/auth/login'
+    failureRedirect: '/auth/failure'
   }), (req, res) => {
-    res.send('You did it.');
+    console.log(req.body);
+    res.redirect('/auth/succ');
   });
+
+router.route('/failure')
+  .get((req,res) => {
+    res.send('Fcuk.');
+  })
+
+router.route('/succ')
+  .get((req, res) => {
+    res.send('gj')
+  })
 
 module.exports = router;
