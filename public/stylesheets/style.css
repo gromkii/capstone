@@ -1,6 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,500i,700";
 body {
   background-color: #4a4a4a; }
+  body .navbar {
+    color: #f9f9f9;
+    margin: 0;
+    font-family: "Raleway", sans-serif; }
+    body .navbar .navbar-brand {
+      font-weight: bold; }
 
 .purpback {
   background-color: #AD5BF5; }

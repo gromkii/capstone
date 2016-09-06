@@ -1,4 +1,8 @@
 (function(){
   angular
-    .module('app', ['ngRoute', 'index']);
+    .module('app', [
+      'ngRoute',
+      'navbar',
+      'index'
+     ]);
 })();
