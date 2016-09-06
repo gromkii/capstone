@@ -13,6 +13,8 @@ router.route('/users')
     var newUser = req.body,
         hash    = bcrypt.hashSync( newUser.password, 8);
 
+    console.log(newUser);
+
     new User({
       username:newUser.username,
       email:newUser.email,
