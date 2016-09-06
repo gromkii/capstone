@@ -10,6 +10,10 @@ body{
   background-color: #4a4a4a;
 }
 
+.purpback {
+  background-color: $purp;
+}
+
 .jumbotron {
   font-family: $rale;
   font-weight:bold;
@@ -59,7 +63,7 @@ body{
 
   button {
     margin:10px;
-    padding:5px;
+    padding:10px;
     font-weight: bold;
     font-size:24px;
     border-radius:3px;

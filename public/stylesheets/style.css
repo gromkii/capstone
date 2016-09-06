@@ -2,6 +2,9 @@
 body {
   background-color: #4a4a4a; }
 
+.purpback {
+  background-color: #AD5BF5; }
+
 .jumbotron {
   font-family: "Raleway", sans-serif;
   font-weight: bold;
@@ -41,7 +44,7 @@ body {
   justify-content: center; }
   .started button {
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
     font-weight: bold;
     font-size: 24px;
     border-radius: 3px;
