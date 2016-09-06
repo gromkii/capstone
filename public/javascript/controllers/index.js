@@ -24,5 +24,15 @@
     var vm = this;
 
     vm.greeting = 'It works btw.';
+    vm.registerModal = registerModal;
+    vm.signinModal = signinModal;
+  }
+
+  function registerModal(){
+    // Do shit.
+  }
+
+  function signinModal(){
+    // Do shit.
   }
 })();
