@@ -26,19 +26,25 @@
 <section id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labeledby="loginModalLabel">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
-     <form action="/auth/login" method="POST">
-       <fieldset class="form-group">
-         <label for="username">Username</label>
-         <input type="text" name="username" class="form-control">
-       </fieldset>
-       <fieldset class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" class="form-control">
-       </fieldset>
-       <fieldset class="form-group">
-         <button type="submit" class="btn btn-primary purpback form-control">Login</button>
-       </fieldset>
-     </form>
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="text-center modal-title">Login</h4>
+     </div>
+     <div class="modal-body">
+       <form action="/auth/login" method="POST">
+         <fieldset class="form-group">
+           <label for="username">Username</label>
+           <input type="text" name="username" class="form-control">
+         </fieldset>
+         <fieldset class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+         </fieldset>
+         <fieldset class="form-group">
+           <button type="submit" class="btn btn-primary purpback form-control">Login</button>
+         </fieldset>
+       </form>
+      </div>
    </div>
  </div>
 </section>
@@ -51,7 +57,7 @@
    <div class="modal-content">
      <div class="modal-header">
        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       <h4 class="modal-title" id="registerModalLabel">Register New Account</h4>
+       <h4 class="modal-title text-center" id="registerModalLabel">Register New Account</h4>
      </div>
      <div class="modal-body">
        <form action="/api/users/" method="POST">
@@ -79,14 +85,12 @@
           <label for="avatar_url">Avatar URL</label>
           <input type="text" class="form-control" name="avatar_url">
         </fieldset>
-
-        <button type="submit" class="btn btn-primary purpback">Submit</button>
+        <fieldset class="form-group">
+          <button type="submit" class="form-control btn btn-primary purpback">Submit</button>
+        </fieldset>
        </form>
      </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary purpback" data-dismiss="modal">Register</button>
-     </div>
+
    </div>
  </div>
 </section>
