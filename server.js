@@ -11,7 +11,6 @@ var express        = require('express'),
     auth           = require('./routes/auth.js'),
     User           = require('./models/user.js');
 
-require('locus');
 require('dotenv');
 
 // --- Middleware --- //
