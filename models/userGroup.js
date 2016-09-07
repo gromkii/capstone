@@ -6,10 +6,10 @@ require('./userRole');
 var UserGroup = bookshelf.Model.extend({
   tableName:'user_groups',
   user(){
-    return this.belongsTo('User').through('UserGroup');
+    return this.belongsTo('User');
   },
   userRole(){
-    return this.belongsToMany('UserRole');
+    return this.belongsTo('UserRole');
   }
 });
 

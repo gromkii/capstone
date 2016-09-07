@@ -4,6 +4,8 @@ var expect  = require('chai').expect,
     knex    = require('../db/knex'),
     should  = require('should');
 
+require('locus');
+
 // Start writing tests.
 describe('User API Calls', ()=>{
   before(done => {
@@ -67,10 +69,10 @@ describe('User API Calls', ()=>{
     request
       .post('/auth/login')
       .send(loginInfo)
-      .expect(200)
+      .expect(302)
+      .expect('Location', '/dashboard')
       .end((err, res) => {
-
         done();
-      })
-  })
+      });
+  });
 });

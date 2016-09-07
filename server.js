@@ -36,8 +36,8 @@ passport.use(new LocalStrategy((username, password, done) => {
     .fetch({withRelated: ['userGroup']})
     .then( user => {
       user = user.toJSON();
+      console.log(user);
       if (bcrypt.compareSync(password, user.password)){
-        console.log('Step One');
         return done(null, user);
       }
 
@@ -63,7 +63,7 @@ app.use('/api', api);
 app.use('/auth', auth);
 
 app.get('/dashboard', (req, res) => {
-  console.log(req.user);
+  res.send('Suh')
 })
 
 app.get('*', (req, res) => {

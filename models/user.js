@@ -5,9 +5,8 @@ require('./userGroup')
 
 var User = bookshelf.Model.extend({
   tableName:'users',
-  // Define relations here.
   userGroup(){
-    return this.belongsToMany('UserGroup');
+    return this.hasMany('UserGroup')
   }
 });
 
