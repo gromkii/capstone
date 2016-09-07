@@ -6,7 +6,10 @@ require('./userGroup')
 var User = bookshelf.Model.extend({
   tableName:'users',
   userGroup(){
-    return this.hasMany('UserGroup')
+    return this.hasMany('UserGroup');
+  },
+  session(){
+    return this.hasMany('Session');
   }
 });
 
