@@ -87,3 +87,22 @@ body{
     }
   }
 }
+
+.options {
+  color:$text;
+  height:160px;
+  background-color:$background;
+  border-radius: 3px;
+  transition: all 1s ease;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:10px;
+  &:hover {
+    /* Rectangle 12: */
+    z-index:1;
+    transform: scale(1.1,1.1);
+    background-color:$purp;
+    border-radius: 3px;
+  }
+}

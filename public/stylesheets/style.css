@@ -62,4 +62,21 @@ body {
       color: #f9f9f9;
       border-color: #f9f9f9; }
 
+.options {
+  color: #f9f9f9;
+  height: 160px;
+  background-color: #3e3e3e;
+  border-radius: 3px;
+  transition: all 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; }
+  .options:hover {
+    /* Rectangle 12: */
+    z-index: 1;
+    transform: scale(1.1, 1.1);
+    background-color: #AD5BF5;
+    border-radius: 3px; }
+
 /*# sourceMappingURL=style.css.map */

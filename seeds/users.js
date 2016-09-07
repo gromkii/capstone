@@ -72,5 +72,19 @@ exports.seed = function(knex, Promise) {
             })
           ]);
         });
+    }).then(() => {
+      return knex('sessions').del()
+        .then(()=> {
+          return Promise.all([
+            knex('sessions').insert({
+              session_name:'Fill Murray Hack n Slash',
+              game_name:'Dungeons and Dragons',
+              session_desc:'Fill Murray doin shit.',
+              header_url:'http://fillmurray.com/200/600',
+              start_date:'2016-09-07T18:25:49+00:00',
+              runtime:'3 Hours'
+            })
+          ])
+        })
     });
 };
