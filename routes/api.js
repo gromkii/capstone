@@ -1,7 +1,8 @@
 var express = require('express'),
   router = express.Router(),
   bcrypt = require('bcrypt'),
-  User = require('../models/user');
+  User = require('../models/user'),
+  Session = require('../models/session');
 
 router.route('/users')
   .get((req, res) => {
@@ -32,6 +33,15 @@ router.route('/users/:user_id')
       .fetch()
       .then( user => {
         res.json(user.toJSON());
+      });
+  });
+
+router.route('/sessions')
+  .get((req, res) => {
+    Session
+      .fetchAll({ withRelated: ['user']})
+      .then( sessions => {
+        res.json(sessions.toJSON());
       });
   });
 
