@@ -4,5 +4,6 @@ var environment = process.env.NODE_ENV || 'development',
     bookshelf   = require('bookshelf')(knex);
 
 bookshelf.plugin('registry');
+bookshelf.plugin('visibility');
 
 module.exports = bookshelf;

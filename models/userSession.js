@@ -6,11 +6,11 @@ require('./user');
 let UserSession = bookshelf.Model.extend({
   tableName:'user_sessions',
   user(){
-    return this.hasMany('User');
+    return this.belongsToMany('User');
   },
   session(){
-    return this.hasMany('Session');
+    return this.belongsToMany('Session');
   }
 });
 
-module.exports = bookshelf.model('UserSession', UserSession);º
+module.exports = bookshelf.model('UserSession', UserSession);

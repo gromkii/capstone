@@ -2,6 +2,7 @@ var bookshelf = require('../db/bookshelf');
 
 require('./userRole')
 require('./userGroup')
+require('./userSession')
 
 var User = bookshelf.Model.extend({
   tableName:'users',
@@ -9,7 +10,10 @@ var User = bookshelf.Model.extend({
     return this.hasMany('UserGroup');
   },
   session(){
-    return this.hasMany('Session');
+    return this.hasMany('Session').through('UserSession');
+  },
+  userSession(){
+    return this.hasMany('UserSession');
   }
 });
 

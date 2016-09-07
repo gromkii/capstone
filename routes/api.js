@@ -39,9 +39,10 @@ router.route('/users/:user_id')
 router.route('/sessions')
   .get((req, res) => {
     Session
-      .fetchAll({ withRelated: ['user']})
+      .fetchAll({ withRelated: ['userSession']})
       .then( sessions => {
-        res.json(sessions.toJSON());
+        console.log(sessions.toJSON());
+        res.json(sessions);
       });
   });
 
