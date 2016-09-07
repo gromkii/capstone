@@ -34,8 +34,11 @@ passport.use(new LocalStrategy((username, password, done) => {
     .where('username', username)
     .fetch({withRelated: ['userGroup']})
     .then( user => {
+      if (user) {
+        user = user.toJSON();
+      }
       if (user && bcrypt.compareSync(password, user.password)){
-        return done(null, user.toJSON());
+        return done(null, user);
       }
 
       return done(null, false);
