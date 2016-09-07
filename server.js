@@ -63,10 +63,6 @@ passport.deserializeUser((id, done) => {
 app.use('/api', api);
 app.use('/auth', auth);
 
-app.get('/dashboard', (req, res) => {
-  res.send('Suh')
-})
-
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/public/views/index.html')
 });

@@ -3,6 +3,7 @@
     .module('app', [
       'ngRoute',
       'navbar',
-      'index'
+      'index',
+      'dashboard'
      ]);
 })();
