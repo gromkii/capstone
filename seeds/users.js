@@ -39,5 +39,41 @@ exports.seed = function(knex, Promise) {
           updated_at:'2016-09-04T23:59:40+00:00'
         }),
       ]);
+    }).then(() => {
+      return knex('user_roles').del()
+        .then(() => {
+          return Promise.all([
+            knex('user_roles').insert({
+              id:1,
+              role:'admin'
+            }),
+            knex('user_roles').insert({
+              id:2,
+              role:'moderator'
+            }),
+            knex('user_roles').insert({
+              id:3,
+              role:'user'
+            })
+          ]);
+        });
+    }).then(() => {
+      return knex('user_groups').del()
+        .then(() => {
+          return Promise.all([
+            knex('user_groups').insert({
+              user_id:1,
+              role_id:1
+            }),
+            knex('user_groups').insert({
+              user_id:2,
+              role_id:2
+            }),
+            knex('user_groups').insert({
+              user_id:3,
+              role_id:2
+            })
+          ]);
+        });
     });
 };

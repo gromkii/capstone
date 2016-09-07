@@ -14,5 +14,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.shema.dropTable('user_groups');
+  return knex.schema.dropTable('user_groups');
 };

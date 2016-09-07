@@ -19,6 +19,7 @@
     "cookie-session": "^2.0.0-alpha.1",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "express-session": "^1.14.1",
     "knex": "^0.11.10",
     "method-override": "^2.3.6",
     "passport": "^0.3.2",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "expect": "^1.20.2",
+    "locus": "^1.2.0",
     "mocha": "^3.0.2",
     "should": "^11.1.0",
     "supertest": "^2.0.0"
