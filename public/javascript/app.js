@@ -3,7 +3,9 @@
     .module('app', [
       'ngRoute',
       'navbar',
+      'Sessions',
       'index',
-      'dashboard'
+      'dashboard',
+      'session'
      ]);
 })();

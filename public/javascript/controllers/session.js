@@ -5,11 +5,12 @@
     .controller('SessionController', SessionController);
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
+  SessionController.$inject = ['Sessions'];
 
   function routeConfig($routeProvider, $locationProvider){
-    $routeConfig
-      .when('/dashboard/session/:session_id'){
-        templateUrl:'/views/dashboard/session/show.html',
+    $routeProvider
+      .when('/dashboard/sessions', {
+        templateUrl:'/views/dashboard/sessions/show.html',
         controller:'SessionController',
         controllerAs:'session'
       });
@@ -18,5 +19,10 @@
       enabled:true,
       requireBase:false
     })
+  }
+
+  function SessionController(Sessions){
+    var vm = this;
+
   }
 })();
