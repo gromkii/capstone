@@ -1,23 +1,15 @@
 (function(){
   angular
     .module('Sessions', [])
-    .factory(Session)
+    .factory('Sessions', Sessions)
 
-  Session.$inject = ['$http'];
 
-  function Session($http){
-    return {
-      getSessions:getSessions
+  function Sessions(){
+    var sessionObj = {
+      greeting: 'Hello'
     }
+
+    return sessionObj;
   }
 
-  function getSessions(){
-    return new Promise((resolve, reject) => {
-      $http
-        .get('http://localhost:3000/api/sessions')
-        .then( sessions => {
-          resolve(sessions);
-        });
-    });
-  }
 })();

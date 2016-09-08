@@ -1,10 +1,10 @@
 (function(){
   angular
-    .module('session', [])
+    .module('session', ['Sessions'])
     .config(routeConfig)
     .controller('SessionController', SessionController);
 
-  routeConfig.$inject = ['$routeProvider', '$locationProvider'];
+  routeConfig.$inject = ['$routeProvider', '$locationProvider']
   SessionController.$inject = ['Sessions'];
 
   function routeConfig($routeProvider, $locationProvider){
@@ -23,6 +23,6 @@
 
   function SessionController(Sessions){
     var vm = this;
-
+    vm.greeting = Sessions.greeting;
   }
 })();
