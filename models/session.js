@@ -5,11 +5,8 @@ require('./userSession')
 
 var Session = bookshelf.Model.extend({
   tableName:'sessions',
-  user(){
-    return this.hasMany('User').through('UserSession');
-  },
-  userSession(){
-    return this.hasMany('UserSession');
+  users(){
+    return this.belongsToMany('User', 'user_sessions');
   }
 });
 

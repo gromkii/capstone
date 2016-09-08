@@ -9,11 +9,8 @@ var User = bookshelf.Model.extend({
   userGroup(){
     return this.hasMany('UserGroup');
   },
-  session(){
-    return this.hasMany('Session').through('UserSession');
-  },
-  userSession(){
-    return this.hasMany('UserSession');
+  sessions(){
+    return this.belongsToMany('Session', 'user_sessions');
   }
 });
 
