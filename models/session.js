@@ -1,9 +1,9 @@
-const bookshelf = require('../db/bookshelf');
+var bookshelf = require('../db/bookshelf');
 
 require('./user')
 require('./userSession')
 
-let Session = bookshelf.Model.extend({
+var Session = bookshelf.Model.extend({
   tableName:'sessions',
   user(){
     return this.hasMany('User').through('UserSession');
