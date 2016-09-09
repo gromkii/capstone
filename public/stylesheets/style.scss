@@ -114,7 +114,8 @@ body{
 .session-view {
   padding:0 250px;
   .header-img {
-
+    background-size:cover;
+    height:200px;
   }
 }
 
@@ -123,4 +124,17 @@ body{
   background-color:$text;
   border-radius:3px;
   margin:20px;
+}
+
+.session-header {
+  color:$text;
+  display: flex;
+  align-items: center;
+  .skill-level{
+    margin-top:15px;
+    padding-top:10px;
+  }
+  .name {
+    height:100%;
+  }
 }
