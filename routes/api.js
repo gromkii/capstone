@@ -55,6 +55,21 @@ router.route('/sessions')
         console.log(sessions.toJSON());
         res.json(sessions);
       });
+  })
+  .post((req, res) => {
+    var s = req.body;
+    new Session({
+      session_name:s.session_name,
+      game_name:s.game_name,
+      session_desc:s.session_desc,
+      header_url:s.header_url,
+      start_date:s.start_date,
+      runtime:s.runtime,
+      skill_level:s.skill_level
+    }).save()
+      .then(() => {
+        res.send('You did the thing.');
+      })
   });
 
 router.route('/session/:session_id')

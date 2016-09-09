@@ -5,7 +5,7 @@
     .controller('NewSessionController', NewSessionController)
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
-  NewSessionController.$inject = "Sessions";
+  NewSessionController.$inject = ['Sessions'];
 
 
   function routeConfig($routeProvider, $locationProvider){
@@ -22,10 +22,10 @@
     });
   }
 
-  function NewSessionController(){
+  function NewSessionController(Sessions){
     var vm = this;
 
-
+    vm.post = Sessions.newSession();
 
   }
 })();
