@@ -57,6 +57,17 @@ router.route('/sessions')
       });
   });
 
+router.route('/session/:session_id')
+  .get((req, res) => {
+    Session
+      .where("id", req.params.session_id)
+      .fetch({withRelated: ['users']})
+      .then( session => {
+        session = session.toJSON();
+        res.json(session);
+      })
+  })
+
 
 
 module.exports = router;

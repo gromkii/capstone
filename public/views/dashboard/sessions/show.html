@@ -1,42 +1,44 @@
-<section class="row">
-  <div class="col-md-12">
-    <!-- Header Image -->
-    <h1>Fuck.</h1>
-    {{ session.greeting }}
-  </div>
-</section>
+<section class="session-view">
+  <section class="row">
+    <div class="col-md-12">
+      <!-- Header Image -->
+      <img ng-src="{{ session.info.header_url }}">
+    </div>
+  </section>
 
-<section class="row">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-5">
-        <!-- Session Name -->
+  <section class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5">
+          <!-- Session Name -->
+          <h2>{{ session.info.session_name }}</h2>
+        </div>
+        <div class="col-md-4">
+          <!-- Game Name -->
+        </div>
+        <div class="col-md-1">
+          <!-- Skill Level -->
+        </div>
+        <div class="col-md-2">
+          <!-- Host Name -->
+        </div>
       </div>
-      <div class="col-md-4">
-        <!-- Game Name -->
+      <div class="row">
+        <div class="col-md-3">
+          <!-- Session Members -->
+        </div>
+        <div class="col-md-7">
+          <!-- Session Members -->
+        </div>
+        <div class="col-md-2">
+          <!-- Session Day -->
+        </div>
       </div>
-      <div class="col-md-1">
-        <!-- Skill Level -->
-      </div>
-      <div class="col-md-2">
-        <!-- Host Name -->
+      <div class="row">
+        <div class="col-md-5">
+          <!-- Required Reading -->
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <!-- Session Members -->
-      </div>
-      <div class="col-md-7">
-        <!-- Session Members -->
-      </div>
-      <div class="col-md-2">
-        <!-- Session Day -->
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5">
-        <!-- Required Reading -->
-      </div>
-    </div>
-  </div>
+  </section>
 </section>
