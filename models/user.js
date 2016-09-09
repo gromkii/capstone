@@ -6,6 +6,7 @@ require('./userSession')
 
 var User = bookshelf.Model.extend({
   tableName:'users',
+  hasTimestamps:true,
   userGroup(){
     return this.hasMany('UserGroup');
   },

@@ -52,7 +52,6 @@ router.route('/sessions')
     Session
       .fetchAll({ withRelated: ['users']})
       .then( sessions => {
-        console.log(sessions.toJSON());
         res.json(sessions);
       });
   })
