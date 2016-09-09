@@ -16,17 +16,23 @@
         </div>
         <div class="col-md-4">
           <!-- Game Name -->
+          <h2>{{ session.info.game_name }}</h2>
         </div>
         <div class="col-md-1">
-          <!-- Skill Level -->
+          <!-- Skill Level 1/2/3.png -->
+          <img ng-src="assets/skill/skill{{ session.info.skill_level }}.svg">
         </div>
         <div class="col-md-2">
           <!-- Host Name -->
+
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
           <!-- Session Members -->
+          <ul>
+            <li ng-repeat="player in session.info.players">{{player.username}}</li>
+          </ul>
         </div>
         <div class="col-md-7">
           <!-- Session Members -->

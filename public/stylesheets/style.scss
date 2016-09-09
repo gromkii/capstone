@@ -90,7 +90,7 @@ body{
 
 .options {
   color:$text;
-  height:160px;
+  height:20vh;
   background-color:$background;
   border-radius: 3px;
   transition: all 1s ease;
@@ -101,7 +101,7 @@ body{
   &:hover {
     /* Rectangle 12: */
     z-index:1;
-    transform: scale(1.1,1.1);
+    transform: scale(1.05,1.05);
     background-color:$purp;
     border-radius: 3px;
   }
@@ -109,5 +109,7 @@ body{
 
 .session-view {
   padding:0 250px;
-  
+  .header-img {
+
+  }
 }

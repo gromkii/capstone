@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="35px" height="30px" viewBox="0 0 35 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Verterans</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Verterans" fill="#D0011B">
+            <g id="Group-3">
+                <g id="Medium-Copy">
+                    <g id="Easy-Copy" transform="translate(0.000000, 10.000000)">
+                        <polygon id="Rectangle-13" points="0 0 17.5 11.09375 35 0 35 8 17.5 19.09375 0 8"></polygon>
+                    </g>
+                    <g id="Easy-Copy-2">
+                        <polygon id="Rectangle-13" points="0 0 17.5 11.09375 35 0 35 8 17.5 19.09375 0 8"></polygon>
+                    </g>
+                </g>
+                <polygon id="Triangle" transform="translate(17.500000, 4.500000) scale(1, -1) translate(-17.500000, -4.500000) " points="17.5 0 32 9 3 9"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

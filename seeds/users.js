@@ -82,7 +82,8 @@ exports.seed = function(knex, Promise) {
               session_desc:'Fill Murray doin shit.',
               header_url:'http://fillmurray.com/800/200',
               start_date:'2016-09-07T18:25:49+00:00',
-              runtime:'3 Hours'
+              runtime:'3 Hours',
+              skill_level:1
             })
           ])
         })
