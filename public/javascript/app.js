@@ -6,6 +6,7 @@
       'index',
       'dashboard',
       'session',
+      'newSession',
       'Sessions'
      ]
    );

@@ -1,0 +1,53 @@
+<section class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h1 class="text-center white">Create New Session</h1>
+
+    <form class="new">
+      <fieldset class="form-group">
+        <label for="session_name">Session Name</label>
+        <input type="text" name="session_name" ng-value="session_name" class="form-control">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="game_name">Game Name</label>
+        <input type="text" name="game_name" ng-value="game_name" class="form-control">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="session_desc">Session Description</label>
+        <textarea class="form-control" name="session_desc" ng-value="session_desc"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="header_url">Header Image URL</label>
+        <input type="text" name="header_url" ng-value="header_url" class="form-control">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="runtime">Runtime</label>
+        <input type="text" name="runtime" ng-value="runtime" class="form-control">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="skill_level">Skill Level</label>
+        <select class="form-group" name="skill_level" ng-value="skill_level">
+          <option value="1">Beginners Welcome</option>
+          <option value="2">Beginners/Intermediate Players</option>
+          <option value="3">Experienced Players</option>
+        </select>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="start_date">Starting Date</label>
+          <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+      </fieldset>
+      <fieldset class="form-group">
+        <button type="submit" class="btn btn-primary purpback pull-right">Create New Session</button>
+      </fieldset>
+    </form>
+  </div>
+</section>

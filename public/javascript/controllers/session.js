@@ -18,11 +18,12 @@
     $locationProvider.html5Mode({
       enabled:true,
       requireBase:false
-    })
+    });
   }
 
   function SessionController(Sessions, $routeParams){
     var vm = this;
+    vm.greeting = 'Hey';
     Sessions
       .getSession($routeParams.session_id)
       .then( session => {
