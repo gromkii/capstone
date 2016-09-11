@@ -143,4 +143,15 @@ describe('Session API Calls', ()=>{
         done();
       })
   })
+
+  it('Should return sessions users.', done => {
+    request
+      .get('/api/session/1')
+      .expect(200)
+      .end((err, res) => {
+        var s = res.body;
+        expect(s.users.length).to.eq(3);
+        done();
+      })
+  })
 });
