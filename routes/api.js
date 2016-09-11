@@ -52,11 +52,17 @@ router.route('/sessions')
     Session
       .fetchAll({ withRelated: ['users']})
       .then( sessions => {
-        console.log(sessions.toJSON());
         res.json(sessions);
       });
   })
   .post((req, res) => {
+    var user;
+    if (!req.session.passport.user){
+      user = null;
+    } else {
+      user = req.session.passport.user;
+    }
+
     var s = req.body;
     new Session({
       session_name:s.session_name,
@@ -65,10 +71,12 @@ router.route('/sessions')
       header_url:s.header_url,
       start_date:s.start_date,
       runtime:s.runtime,
-      skill_level:s.skill_level
+      skill_level:s.skill_level,
+      num_players:s.num_players,
+      host_id:user
     }).save()
-      .then(() => {
-        res.send('You did the thing.');
+      .then(id => {
+        res.redirect(`/dashboard/session/${id}`);
       })
   });
 
