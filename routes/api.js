@@ -56,12 +56,6 @@ router.route('/sessions')
       });
   })
   .post((req, res) => {
-    if (req.session.passport.user){
-      var user = req.session.passport.user;
-    } else {
-      var user = null;
-    }
-
     var s = req.body;
     new Session({
       session_name:s.session_name,
@@ -71,8 +65,7 @@ router.route('/sessions')
       start_date:s.start_date,
       runtime:s.runtime,
       skill_level:s.skill_level,
-      num_players:s.num_players,
-      host_id:user
+      num_players:s.num_players
     }).save()
       .then(id => {
         res.redirect(`/dashboard/session/${id}`);

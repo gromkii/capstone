@@ -113,11 +113,7 @@ describe('Session API Calls', ()=>{
       start_date:'2016-09-07T18:25:49+00:00',
       runtime:'forever',
       skill_level:2,
-      session: {}
     }
-
-    n.session.passport = {};
-    n.session.passport.user = 1;
 
     request
       .post('/api/sessions')
