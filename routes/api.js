@@ -56,11 +56,10 @@ router.route('/sessions')
       });
   })
   .post((req, res) => {
-    var user;
-    if (!req.session.passport.user){
-      user = null;
+    if (req.session.passport.user){
+      var user = req.session.passport.user;
     } else {
-      user = req.session.passport.user;
+      var user = null;
     }
 
     var s = req.body;

@@ -76,3 +76,75 @@ describe('User API Calls', ()=>{
       });
   });
 });
+
+describe('Session API Calls', ()=>{
+  before(done => {
+    knex.migrate.latest().then(()=>{
+      knex.seed.run().then(()=> {
+        done();
+      })
+    });
+  });
+
+  after(done => {
+    knex.migrate.rollback().then(()=>{
+      done()
+    });
+  });
+
+  it('Should return session all sessions.', done => {
+    request
+      .get('/api/sessions')
+      .expect(200)
+      .end((err, res) => {
+        var sessions = res.body;
+        expect(sessions.length).to.eq(1) // Current seed only has one session!
+        expect(sessions[0].users.length).to.eq(3) // First session has 3 users.
+        done();
+      });
+  });
+
+  it('Should post a new session.', done => {
+    var n = {
+      session_name:'A Game',
+      game_name:'Shadowrun',
+      session_desc:'A Game',
+      header_url:'fillmurray.com/900/200',
+      start_date:'2016-09-07T18:25:49+00:00',
+      runtime:'forever',
+      skill_level:2,
+      session: {}
+    }
+
+    n.session.passport = {};
+    n.session.passport.user = 1;
+
+    request
+      .post('/api/sessions')
+      .send(n)
+      .expect(200)
+      .end((err, res) => {
+        request
+          .get('/api/session/2')
+          .expect(200)
+          .end((err, res) => {
+            var s = res.body;
+            expect(s.game_name).to.eq('A Game');
+            done();
+          })
+      })
+  });
+
+  it('Should return specific session information.', done => {
+    request
+      .get('/api/session/1')
+      .expect('200')
+      .end((err, res) => {
+        var s = res.body;
+        expect(s.session_name).to.eq('Fill Murray Hack n Slash');
+        expect(s.game_name).to.eq('Dungeons and Dragons');
+        expect(s.skill_level).to.eq(1);
+        done();
+      })
+  })
+});
