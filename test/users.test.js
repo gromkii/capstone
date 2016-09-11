@@ -125,7 +125,7 @@ describe('Session API Calls', ()=>{
           .expect(200)
           .end((err, res) => {
             var s = res.body;
-            expect(s.game_name).to.eq('A Game');
+            expect(s.game_name).to.eq('Shadowrun');
             done();
           })
       })
