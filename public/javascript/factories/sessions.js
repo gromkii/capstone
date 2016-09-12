@@ -19,6 +19,10 @@
       return $http.post(`http://localhost:3000/api/sessions`)
     }
 
+    function getUserSession(user_id){
+      return $http.get(`http://localhost:3000/api/user/${user_id}/sessions`)
+    }
+
     return sessionObj;
   }
 

@@ -18,4 +18,16 @@ var User = bookshelf.Model.extend({
 
 // Define User methods here.
 
+User.getSessions = function(user_id) {
+  return new Promise((resolve, reject) => {
+    User
+      .where('id', user_id)
+      .fetch({withRelated: ['sessions']})
+      .then( results => {
+        resolve(results);
+      })
+  })
+}
+
+
 module.exports = bookshelf.model('User', User)

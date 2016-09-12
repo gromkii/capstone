@@ -36,13 +36,13 @@ router.route('/user/:user_id')
       });
   });
 
-router.route('/users/:user_id/sessions')
+router.route('/user/:user_id/sessions')
   .get((req, res) => {
     User
-      .where('id', req.params.user_id)
-      .fetch({withRelated: ['sessions']})
-      .then (user => {
-        user = user.toJSON();
+      .getSessions(req.params.user_id)
+      .then( results => {
+        var user = results.toJSON();
+
         res.json(user);
       })
   })
