@@ -67,7 +67,8 @@ router.route('/sessions')
       skill_level:s.skill_level,
       num_players:s.num_players
     }).save()
-      .then(id => {
+      .then(post => {
+        var id = post.toJSON().id;
         res.redirect(`/dashboard/session/${id}`);
       })
   });

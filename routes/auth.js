@@ -8,6 +8,27 @@ router.route('/login')
     failureRedirect:'/auth/fail'
   }))
 
+router.route('/logout')
+  .get((req, res) => {
+    if (req.user){
+      req.logout();
+      res.redirect('/')
+    } else {
+      res.send(401);
+      res.redirect('/');
+    }
+  })
+
+router.route('/user')
+  .get((req, res) => {
+    if (req.user) {
+      res.json(req.user)
+    } else {
+      res.send('No user found.')
+    }
+
+  })
+
 router.route('/fail')
   .get((req, res) => {
     res.send('You suck.');

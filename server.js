@@ -55,13 +55,32 @@ passport.deserializeUser((id, done) => {
     .fetch()
     .then( user => {
       user = user.toJSON();
-      done(null, user);
+      var signed = {
+        id:user.id,
+        username:user.username
+      }
+      done(null, signed);
     })
 })
+
+// --- Auth --- //
+
+function auth(req, res, next){
+  !req.isAuthenticated() ? res.send(401) : next()
+}
 
 // --- Routing --- //
 app.use('/api', api);
 app.use('/auth', auth);
+
+app.get('/dashboard', auth, (req, res, next) => {
+  if (!req.isAuthenticated) {
+    console.log('What you do.');
+    res.send(401);
+  } else {
+    next();
+  }
+})
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/public/views/index.html')
