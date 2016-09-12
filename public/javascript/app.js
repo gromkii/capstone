@@ -7,7 +7,8 @@
       'dashboard',
       'session',
       'newSession',
-      'Sessions'
+      'Sessions',
+      'Users'
      ]
    );
 })();

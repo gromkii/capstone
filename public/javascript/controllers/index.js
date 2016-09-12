@@ -1,12 +1,13 @@
 (function(){
   angular
-    .module('index', [])
+    .module('index', ['Users'])
     .config(routeConfig)
     .controller('IndexController', IndexController);
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
   registerPost.$inject = ['$http'];
   signinPost.$inject = ['$http'];
+  IndexController.$inject = ['Users']
 
   function routeConfig($routeProvider, $locationProvider){
     $routeProvider
@@ -22,14 +23,22 @@
     });
   };
 
-  function IndexController(){
+  function IndexController(Users){
     var vm = this;
+
+    Users
+      .getAllUsers()
+      .then( results => {
+        console.log(results.data);
+      })
 
     vm.greeting = 'It works btw.';
     vm.registerModal = registerModal;
     vm.registerPost = registerPost;
     vm.signinModal = signinModal;
     vm.signinPost = signinPost;
+
+
   }
 
   function registerModal(){

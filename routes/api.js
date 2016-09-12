@@ -26,7 +26,7 @@ router.route('/users')
     });
   });
 
-router.route('/users/:user_id')
+router.route('/user/:user_id')
   .get((req, res) => {
     User
       .where('id', req.params.user_id)

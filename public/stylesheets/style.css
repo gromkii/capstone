@@ -86,8 +86,8 @@ body {
 .session-view {
   padding: 0 250px; }
   .session-view .header-img {
-    background-size: cover;
-    height: 200px; }
+    display: block;
+    width: 100%; }
 
 .new {
   padding: 20px;
