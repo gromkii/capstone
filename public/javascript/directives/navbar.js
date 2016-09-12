@@ -26,15 +26,11 @@
         .then( results => {
           var user = results.data;
           if (user.id) {
-            console.log(user);
             vm.loggedIn = true;
             vm.username = user.username;
             vm.user_id = user.id;
-
-            console.log(vm.username, vm.user_id);
           }
         })
-
     }
   }
 })();

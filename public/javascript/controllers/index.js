@@ -15,7 +15,7 @@
         templateUrl:'/views/index/index.html',
         controller:'IndexController',
         controllerAs:'index'
-      });
+      })
 
     $locationProvider.html5Mode({
       enabled:true,
