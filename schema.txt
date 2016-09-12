@@ -46,3 +46,10 @@ session_desc
   desc:text
   category: FK?
   game_name:string
+
+session_application
+  hasPlayed:bool
+  yearsPlayed:int
+  usedPlatform:bool
+  experienceLevel:int
+  application:text
