@@ -24,10 +24,18 @@
   function SessionController(Sessions, $routeParams, Users){
     var vm = this;
     vm.getUser = Users.getUser;
+    vm.sessionSkill = sessionSkill;
     Sessions
       .getSession($routeParams.session_id)
       .then( session => {
         vm.info = session.data;
       })
+
+
+    function sessionSkill(skill_level){
+      return `/assets/skill/${skill_level}.png`;
+    }
   }
+
+
 })();

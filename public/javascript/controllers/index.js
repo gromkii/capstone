@@ -5,8 +5,6 @@
     .controller('IndexController', IndexController);
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
-  registerPost.$inject = ['$http'];
-  signinPost.$inject = ['$http'];
   IndexController.$inject = ['Users']
 
   function routeConfig($routeProvider, $locationProvider){
@@ -25,13 +23,5 @@
 
   function IndexController(Users){
     var vm = this;
-
-    vm.greeting = 'It works btw.';
-    vm.registerModal = registerModal;
-    vm.registerPost = registerPost;
-    vm.signinModal = signinModal;
-    vm.signinPost = signinPost;
-
-
   }
 })();
