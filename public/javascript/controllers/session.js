@@ -1,11 +1,11 @@
 (function(){
   angular
-    .module('session', ['Sessions'])
+    .module('session', ['Sessions', 'Users'])
     .config(routeConfig)
     .controller('SessionController', SessionController);
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider']
-  SessionController.$inject = ['Sessions', '$routeParams'];
+  SessionController.$inject = ['Sessions', '$routeParams', 'Users'];
 
   function routeConfig($routeProvider, $locationProvider){
     $routeProvider
@@ -21,9 +21,9 @@
     });
   }
 
-  function SessionController(Sessions, $routeParams){
+  function SessionController(Sessions, $routeParams, Users){
     var vm = this;
-    vm.greeting = 'Hey';
+    vm.getUser = Users.getUser;
     Sessions
       .getSession($routeParams.session_id)
       .then( session => {
