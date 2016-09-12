@@ -15,10 +15,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a data-toggle="modal" data-target="#loginModal">Login</a></li>
-        <li><a data-toggle="modal" data-target="#registerModal">Sign Up</a></li>
+        <li><a data-toggle="modal" data-target="#loginModal" ng-hide="navbar.loggedIn">Login</a></li>
+        <li><a data-toggle="modal" data-target="#registerModal" ng-hide="navbar.loggedIn">Sign Up</a></li>
+        <li class="dropdown" ng-show="navbar.loggedIn">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{navbar.username}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Search Sessions</a></li>
+            <li><a href="/dashboard/sessions/new">Host New Session</a></li>
+            <li><a href="#">View Current Sessions</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a data-toggle="modal" data-target="#userModal">View Profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>
+        </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
   </div><!-- /.container-fluid -->
 </nav>
 
@@ -93,4 +105,21 @@
 
    </div>
  </div>
+</section>
+
+
+<!-- User Info Modal -->
+<section id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labeledby="userModalLabel">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title text-center" id="userModalLabel">{{ navbar.username }}</h4>
+    </div>
+
+    <div class="modal-body">
+      Sup dude.
+    </div>
+  </div>
+</div>
 </section>

@@ -3,6 +3,8 @@
     .module('navbar', [])
     .directive('navbar', navbar)
 
+
+
   function navbar(){
     var navbarObject = {
       restrict:'EA',
@@ -11,11 +13,28 @@
       controllerAs:'navbar'
     }
 
+    NavbarController.$inject = ['$http'];
+
     return navbarObject;
 
-    function NavbarController(){
-      let vm = this;
-      vm.greeting = 'Hello';
+    function NavbarController($http){
+      var vm = this;
+      vm.loggedIn = false;
+
+      $http
+        .get('/auth/user')
+        .then( results => {
+          var user = results.data;
+          if (user.id) {
+            console.log(user);
+            vm.loggedIn = true;
+            vm.username = user.username;
+            vm.user_id = user.id;
+
+            console.log(vm.username, vm.user_id);
+          }
+        })
+
     }
   }
 })();

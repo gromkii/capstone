@@ -24,7 +24,9 @@ router.route('/user')
     if (req.user) {
       res.json(req.user)
     } else {
-      res.send('No user found.')
+      res.json({
+        id:0
+      });
     }
 
   })
