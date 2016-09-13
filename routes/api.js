@@ -57,6 +57,7 @@ router.route('/sessions')
   })
   .post((req, res) => {
     var s = req.body;
+    console.log(s);
     new Session({
       session_name:s.session_name,
       game_name:s.game_name,

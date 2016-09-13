@@ -38,14 +38,14 @@
       <fieldset class="form-group">
         <label for="start_date">Starting Date</label>
           <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" />
+              <input type='text' class="form-control" name="start_date"/>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
           </div>
         <script type="text/javascript">
             $(function () {
-                $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').datetimepicker().format(String);
             });
         </script>
       </fieldset>

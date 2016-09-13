@@ -129,6 +129,7 @@ body{
 .session-header {
   color:$text;
   display: flex;
+  flex-direction: row;
   align-items: center;
   .skill-level{
     margin-top:15px;
