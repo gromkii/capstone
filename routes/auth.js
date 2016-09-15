@@ -12,27 +12,18 @@ router.route('/login')
 
 router.route('/iphone/login')
   .post((req, res) => {
-    /*
-    *
-    *   Creates a specific strategy to login with iphone.
-    *   Not super secure, and could stand to refactor. 
-    *
-    */
-
     var l = req.body
 
     User
       .where('username', l.username)
       .fetch()
       .then(results => {
-        if (results) {
-          var user = results.toJSON();
-        } else {
-          res.json({user_id:0})
-        }
+        var user = results ? results.toJSON() : {user_id:0}
 
         if (bcrypt.compareSync(l.password, user.password)) {
           res.json({user_id:user.id});
+        } else {
+          res.json({user_id:0});
         }
       })
   });
