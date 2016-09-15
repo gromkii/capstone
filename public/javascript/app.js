@@ -7,6 +7,7 @@
       'dashboard',
       'session',
       'newSession',
+      'userSession',
       'Sessions',
       'Users'
      ]

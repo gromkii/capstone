@@ -20,7 +20,7 @@ router.route('/iphone/login')
       .then(results => {
         var user = results ? results.toJSON() : {user_id:0}
 
-        if (bcrypt.compareSync(l.password, user.password)) {
+        if (user.user_id !== 0 && bcrypt.compareSync(l.password, user.password)) {
           res.json({user_id:user.id});
         } else {
           res.json({user_id:0});
