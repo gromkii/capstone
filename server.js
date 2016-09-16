@@ -74,9 +74,9 @@ app.use('/api', api);
 app.use('/auth', auth);
 
 app.get('/dashboard', auth, (req, res, next) => {
-  if (!req.isAuthenticated) {
-    console.log('What you do.');
-    res.send(401);
+
+  if (!req.isAuthenticated()) {
+    res.redirect('/');
   } else {
     next();
   }
