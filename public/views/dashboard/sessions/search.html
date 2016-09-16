@@ -1,24 +1,53 @@
 <seciont class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <input type="text" ng-model="searchSessions.session_name" placeholder="Search for a Session" class="form-control">
+  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+    <h1 class="text-center white">Search for Sessions</h1>
+    <div class="row">
+      <fieldset class="col-md-6">
+        <input type="text" ng-model="searchSessions.session_name" placeholder="Search for a Session" class="form-control">
+      </fieldset>
+      <fieldset class="col-md-6">
+        <input type="text" ng-model="searchSessions.game_name" placeholder="Search for a Game" class="form-control">
+      </fieldset>
 
+    </div>
 
-    <table class="table table-white">
+    <div class="row">
+        <fieldset class="col-md-6">
+        <label for="moreOptions" class="pull-right white">More Search Options
+        <input type="checkbox" name="moreOptions" ng-init="moreOptions = false" ng-click="moreOptions = !moreOptions">
+        </label>
+        </fieldset>
+
+        <fieldset class="col-md-6" ng-show="moreOptions">
+          <label for="skill_level" class="white">Skill Level</label>
+          <select ng-model="searchSessions.skill_level" name="skill_level">
+            <option value="" selected>(None Selected)</option>
+            <option value="1">Beginner</option>
+            <option value="2">Intermediate</option>
+            <option value="3">Advanced</option>
+          </select>
+        </fieldset>
+     </div>
+
+    <hr>
+
+    <table class="table table-condensed table-white table-responsive">
       <thead>
         <tr>
           <th>Session Name</th>
           <th>Game Name</th>
           <th>Session Description</th>
-          <th>Open Seats</th>
-          <th>Skill Level</th>
-          <th>Day of the Week</th>
+          <th>Seats</th>
+          <th>Skill</th>
+          <th>Meet Day</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="session in search.sessions | filter:searchSessions">
           <td>{{session.session_name}}</td>
           <td>{{session.game_name}}</td>
-          <td>{{session.session_desc}}</td>
+          <td>{{session.session_desc | limitTo:100 }}...</td>
           <td>{{seats = session.num_players - session.users.length > 0 ? session.num_players - session.users.legnth : "Full" }}</td>
           <td><img ng-src="/assets/skill/{{session.skill_level}}.png"></td>
           <td>{{session.start_date | date:'EEEE'}}
