@@ -106,4 +106,9 @@ body {
   .session-header .name {
     height: 100%; }
 
+.table-white {
+  background-color: #666;
+  color: #f9f9f9;
+  font-family: "Playfair Display", serif; }
+
 /*# sourceMappingURL=style.css.map */

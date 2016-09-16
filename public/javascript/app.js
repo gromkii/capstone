@@ -8,6 +8,7 @@
       'session',
       'newSession',
       'userSession',
+      'searchSessions',
       'Sessions',
       'Users'
      ]

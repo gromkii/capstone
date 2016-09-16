@@ -110,7 +110,7 @@ router.route('/application')
 
         knex('approve_applications').insert({
           app_id:r,
-          host_id:1,
+          host_id:1, // Need to insert hidden value in form.
         }).then( results => {
           res.redirect('/dashboard');
         })
