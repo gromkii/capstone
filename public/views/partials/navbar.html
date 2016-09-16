@@ -76,8 +76,8 @@
        <form action="/api/users/" method="POST" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }" name="register" novalidate>
 
         <fieldset class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3" ng-maxlength="12">
+          <label for="username">Username *</label>
+          <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3" ng-maxlength="12" required="">
 
           <!-- Errors -->
           <p ng-show="register.$error.minlength" class="help-block">Username is too short.</p>
@@ -85,19 +85,22 @@
         </fieldset>
 
         <fieldset class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" name="email">
+          <label for="email">Email *</label>
+          <input type="email" class="form-control" name="email" require="">
 
           <!-- Errors -->
-
+          <div ng-show="form.$submitted || form.uEmail.$touched">
+            <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+            <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+          </div>
         </fieldset>
         <fieldset class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password">
+          <label for="password">Password *</label>
+          <input type="password" class="form-control" name="password" required="">
         </fieldset>
         <fieldset class="form-group">
-          <label for="full_name">Full Name</label>
-          <input type="text" class="form-control" name="full_name">
+          <label for="full_name">Full Name *</label>
+          <input type="text" class="form-control" name="full_name" required="">
         </fieldset>
         <fieldset class="form-group">
           <label for="location">Location</label>
@@ -110,6 +113,7 @@
         <fieldset class="form-group">
           <button type="submit" class="form-control btn btn-primary purpback" ng-disabled="register.$invalid">Submit</button>
         </fieldset>
+        <footer><em>* Required Field</em></footer>
        </form>
      </div>
 
