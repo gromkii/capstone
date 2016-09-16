@@ -6,18 +6,22 @@
   <thead>
     <tr>
       <th>Session Name</th>
-      <th>Game Name</td>
-      <th>Session Description</td>
-      <th>Open Seats</td>
-      <th>Day of the Week</td>
+      <th>Game Name</th>
+      <th>Session Description</th>
+      <th>Open Seats</th>
+      <th>Skill Level</th>
+      <th>Day of the Week</th>
     </tr>
   </thead>
-<tr ng-repeat="session in search.sessions | filter:searchSessions">
-  <td>{{session.session_name}}</td>
-  <td>{{session.game_name}}</td>
-  <td>{{session.session_desc}}</td>
-  <td>{{session.num_players - session.users.length}}</td>
-  <td>{{session.start_date | date:'EEEE'}}
-  <td><a ng-href="/dashboard/session/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
-</tr>
+  <tbody>
+    <tr ng-repeat="session in search.sessions | filter:searchSessions">
+      <td>{{session.session_name}}</td>
+      <td>{{session.game_name}}</td>
+      <td>{{session.session_desc}}</td>
+      <td>{{session.num_players - session.users.length}}</td>
+      <td><img ng-src="/assets/skill/{{session.skill_level}}.png"></td>
+      <td>{{session.start_date | date:'EEEE'}}
+      <td><a ng-href="/dashboard/session/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
+    </tr>
+  </tbody>
 </table>
