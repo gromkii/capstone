@@ -69,8 +69,37 @@
     </div>
 
     <div class="modal-body">
-      <form>
-        Do the thing.
+      <form action="/api/application" method="POST">
+        <fieldset class="form-group">
+          <h5>Have you played this game before?</h5>
+          <label for="has_played">(Check if yes.)</label>
+          <input type="checkbox" name="has_played">
+        </fieldset>
+        <fieldset class="form-group">
+          <h5>If yes, how many years have you been playing?</h5>
+          <input type="number" name="years_played" class="form-group">
+        </fieldset>
+        <fieldset class="form-group">
+          <h5>Have you played used this platform before?</h5>
+          <label for="used_platform">(Check if yes.)</label>
+          <input type="checkbox" name="used_platform">
+        </fieldset>
+        <fieldset class="form-group">
+          <h5>How would you rate your overall experience level as a player?</h5>
+          <select name="exp_level" class="form-control">
+            <option value="1">A Beginner</option>
+            <option value="2">An Intermediate Player</option>
+            <option value="3">A Veteran Gamer</option>
+          </select>
+        </fieldset>
+        <fieldset class="form-group">
+          <h5>(Optional) Please give a brief summary of why you'd like to join this session.</h5>
+          <textarea name="application" class="form-control"></textarea>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <button type="submit" class="btn btn-primary purpback pull-right">Submit Application</button>
+        </fieldset>
       </form>
     </div>
   </div>
