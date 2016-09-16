@@ -3,6 +3,7 @@ var bookshelf = require('../db/bookshelf');
 require('./userRole')
 require('./userGroup')
 require('./userSession')
+require('./application')
 
 var User = bookshelf.Model.extend({
   tableName:'users',
@@ -13,6 +14,9 @@ var User = bookshelf.Model.extend({
   },
   sessions(){
     return this.belongsToMany('Session', 'user_sessions');
+  },
+  applications(){
+    return this.belongsToMany('Application', 'approve_applications')
   }
 });
 
