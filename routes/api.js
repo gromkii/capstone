@@ -98,7 +98,6 @@ router.route('/application')
   .post((req, res) => {
     var a = req.body;
 
-    console.log(a);
     new Application({
       has_played:a.has_played,
       years_played:a.years_played,
@@ -107,7 +106,14 @@ router.route('/application')
       application:a.application
     }).save()
       .then( results => {
-        console.log(results.toJSON());
+        var r = results.toJSON().id;
+
+        knex('approve_applications').insert({
+          app_id:r,
+          host_id:1,
+        }).then( results => {
+          res.redirect('/dashboard');
+        })
       })
   })
 
