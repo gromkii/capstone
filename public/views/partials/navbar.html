@@ -73,14 +73,23 @@
        <h4 class="modal-title text-center" id="registerModalLabel">Register New Account</h4>
      </div>
      <div class="modal-body">
-       <form action="/api/users/" method="POST">
+       <form action="/api/users/" method="POST" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }" name="register" novalidate>
+
         <fieldset class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" name="username">
+          <input type="text" class="form-control" name="username" ng-model="user.username" ng-minlength="3" ng-maxlength="12">
+
+          <!-- Errors -->
+          <p ng-show="register.$error.minlength" class="help-block">Username is too short.</p>
+          <p ng-show="register.$error.maxlength" class="help-block">Username is too long.</p>
         </fieldset>
+
         <fieldset class="form-group">
           <label for="email">Email</label>
           <input type="text" class="form-control" name="email">
+
+          <!-- Errors -->
+
         </fieldset>
         <fieldset class="form-group">
           <label for="password">Password</label>
@@ -99,7 +108,7 @@
           <input type="text" class="form-control" name="avatar_url">
         </fieldset>
         <fieldset class="form-group">
-          <button type="submit" class="form-control btn btn-primary purpback">Submit</button>
+          <button type="submit" class="form-control btn btn-primary purpback" ng-disabled="register.$invalid">Submit</button>
         </fieldset>
        </form>
      </div>
