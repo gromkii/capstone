@@ -2,7 +2,8 @@ var express = require('express'),
   router = express.Router(),
   bcrypt = require('bcrypt'),
   User = require('../models/user'),
-  Session = require('../models/session');
+  Session = require('../models/session'),
+  Application = require('../models/application');
 
 router.route('/users')
   .get((req, res) => {
@@ -57,7 +58,6 @@ router.route('/sessions')
   })
   .post((req, res) => {
     var s = req.body;
-    console.log(s);
     new Session({
       session_name:s.session_name,
       game_name:s.game_name,
@@ -82,6 +82,23 @@ router.route('/session/:session_id')
       .then( session => {
         session = session.toJSON();
         res.json(session);
+      })
+  })
+
+router.route('/application')
+  .post((req, res) => {
+    var a = req.body;
+
+    console.log(a);
+    new Application({
+      has_played:a.has_played,
+      years_played:parseInt(a.years_played),
+      used_platform:a.used_platform,
+      exp_level:parseInt(a.exp_level),
+      application:a.application
+    }).save()
+      .then( results => {
+        res.redirect('/dashboard');
       })
   })
 

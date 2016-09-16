@@ -121,7 +121,7 @@ describe('Session API Calls', ()=>{
       .expect(200)
       .end((err, res) => {
         request
-          .get('/api/session/2')
+          .get('/api/session/4')
           .expect(200)
           .end((err, res) => {
             var s = res.body;
