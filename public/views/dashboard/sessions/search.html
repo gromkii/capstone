@@ -1,27 +1,30 @@
-<input type="text" ng-model="searchSessions.session_name" placeholder="Session Name">
-<input type="text" ng-model="searchSessions.game_name" placeholder="Game Name">
+<seciont class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <input type="text" ng-model="searchSessions.session_name" placeholder="Search for a Session" class="form-control">
 
 
-<table class="table table-white">
-  <thead>
-    <tr>
-      <th>Session Name</th>
-      <th>Game Name</th>
-      <th>Session Description</th>
-      <th>Open Seats</th>
-      <th>Skill Level</th>
-      <th>Day of the Week</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="session in search.sessions | filter:searchSessions">
-      <td>{{session.session_name}}</td>
-      <td>{{session.game_name}}</td>
-      <td>{{session.session_desc}}</td>
-      <td>{{session.num_players - session.users.length}}</td>
-      <td><img ng-src="/assets/skill/{{session.skill_level}}.png"></td>
-      <td>{{session.start_date | date:'EEEE'}}
-      <td><a ng-href="/dashboard/session/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
-    </tr>
-  </tbody>
-</table>
+    <table class="table table-white">
+      <thead>
+        <tr>
+          <th>Session Name</th>
+          <th>Game Name</th>
+          <th>Session Description</th>
+          <th>Open Seats</th>
+          <th>Skill Level</th>
+          <th>Day of the Week</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="session in search.sessions | filter:searchSessions">
+          <td>{{session.session_name}}</td>
+          <td>{{session.game_name}}</td>
+          <td>{{session.session_desc}}</td>
+          <td>{{seats = session.num_players - session.users.length > 0 ? session.num_players - session.users.legnth : "Full" }}</td>
+          <td><img ng-src="/assets/skill/{{session.skill_level}}.png"></td>
+          <td>{{session.start_date | date:'EEEE'}}
+          <td><a ng-href="/dashboard/session/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
