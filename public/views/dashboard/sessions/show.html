@@ -72,17 +72,21 @@
       <form action="/api/application" method="POST">
         <fieldset class="form-group">
           <h5>Have you played this game before?</h5>
-          <label for="has_played">(Check if yes.)</label>
-          <input type="checkbox" name="has_played">
+          <label for="has_played">Yes</label>
+          <input type="radio" name="has_played" value="true">
+          <label for="has_played">No</label>
+          <input type="radio" name="has_played" value="false">
         </fieldset>
         <fieldset class="form-group">
           <h5>If yes, how many years have you been playing?</h5>
-          <input type="number" name="years_played" class="form-group">
+          <input type="number" name="years_played" class="form-group" value="0">
         </fieldset>
         <fieldset class="form-group">
           <h5>Have you played used this platform before?</h5>
-          <label for="used_platform">(Check if yes.)</label>
-          <input type="checkbox" name="used_platform">
+          <label for="used_platform">Yes</label>
+          <input type="radio" name="used_platform" value="true">
+          <label for="used_platform">No</label>
+          <input type="radio" name="used_platform" value="false">
         </fieldset>
         <fieldset class="form-group">
           <h5>How would you rate your overall experience level as a player?</h5>

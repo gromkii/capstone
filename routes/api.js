@@ -1,6 +1,7 @@
 var express = require('express'),
   router = express.Router(),
   bcrypt = require('bcrypt'),
+  knex = require('../db/knex'),
   User = require('../models/user'),
   Session = require('../models/session'),
   Application = require('../models/application');
@@ -86,19 +87,27 @@ router.route('/session/:session_id')
   })
 
 router.route('/application')
+  .get((req, res) =>{
+    Application
+      .fetchAll()
+      .then( results => {
+        res.json(results)
+      })
+  })
+
   .post((req, res) => {
     var a = req.body;
 
     console.log(a);
     new Application({
       has_played:a.has_played,
-      years_played:parseInt(a.years_played),
+      years_played:a.years_played,
       used_platform:a.used_platform,
-      exp_level:parseInt(a.exp_level),
+      exp_level:a.exp_level,
       application:a.application
     }).save()
       .then( results => {
-        res.redirect('/dashboard');
+        console.log(results.toJSON());
       })
   })
 
