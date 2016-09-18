@@ -1,10 +1,22 @@
 <section class="row">
-  <h1 class="text-center">My Current Sessions</h1>
+  <h1 class="white text-center">My Current Sessions</h1>
   <div class="col-md-10 col-md-offset-1">
     <ul>
       <li ng-repeat="session in userSession.mySessions">
         <a ng-href="/dashboard/session/{{session.id}}">{{session.session_name}}</a>
       </li>
     </ul>
+  </div>
+</section>
+
+<section class="row" ng-hide="userSessions.hostedSessions.length">
+  <div class="col-lg-10 col-lg-offset-1 col-md-12">
+    <h2 class="white text-center">Hosted Sessions</h2>
+      <!-- Where host_id = user_id -->
+      <ul>
+        <li ng-repeate="session in userSessions.hostedSessions">
+          <a ng-href="/dashboard/session/{{session.id}}">{{session.session_name}}</a>
+        </li>
+      </ul>
   </div>
 </section>

@@ -24,8 +24,9 @@
 
   function UserSessionController($http, Sessions){
     var vm = this;
-    vm.greeting = "Hello bitches.";
 
+
+    // This is really ugly, but chains commands to get sessions.
     $http.get('/auth/user')
       .then( results => {
         var u = results.data;
@@ -34,8 +35,12 @@
             .then( results => {
 
               vm.mySessions = results.data.sessions
-
-              console.log(vm.mySessions);
+            })
+            .then(() => {
+              $http.get(`/api/user/${u.id}/sessions/host`)
+                .then( results => {
+                   vm.hostedSessions = results.data
+                })
             })
         }
       });

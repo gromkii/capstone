@@ -49,6 +49,24 @@ router.route('/user/:user_id/sessions')
       })
   })
 
+router.route('/user/:user_id/sessions/host')
+  .get((req, res) => {
+    var user = req.user ? req.user.id : req.body.user_id;
+
+    if (user) {
+      Session
+        .where('host_id', user)
+        .fetchAll({withRelated:['users']})
+        .then( results => {
+          var sessions = results.toJSON();
+
+          res.json(sessions);
+        })
+    } else {
+      res.json({error: 'Not Logged In'});
+    }
+  })
+
 router.route('/sessions')
   .get((req, res) => {
     Session
