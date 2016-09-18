@@ -105,6 +105,14 @@ router.route('/session/:session_id')
         res.json(session);
       })
   })
+  .delete((req, res) => {
+    Session
+      .where('id', req.params.session_id)
+      .destroy()
+      .then( results => {
+        res.redirect('/dashboard/users/sessions')
+      })
+  })
 
 router.route('/application')
   .get((req, res) =>{

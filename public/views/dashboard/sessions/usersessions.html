@@ -27,6 +27,7 @@
           <th>Session Name</th>
           <th>Game Name</th>
           <th>Open Seats</th>
+          <th></th>
           <!-- Options -->
         </thead>
 
@@ -35,6 +36,10 @@
             <td>{{ session.session_name }}</td>
             <td>{{ session.game_name }}</td>
             <td>{{ session.num_players - session.users.length }}</td>
+            <td>
+              <button class="btn btn-small btn-danger" ng-click="userSession.deleteSession(session.id)">
+                Delete
+              </button>
           </tr>
         </tbody>
       </table>

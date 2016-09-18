@@ -25,6 +25,7 @@
   function UserSessionController($http, Sessions){
     var vm = this;
 
+    vm.deleteSession = deleteSession
 
     // This is really ugly, but chains commands to get sessions.
     $http.get('/auth/user')
@@ -44,5 +45,13 @@
             })
         }
       });
+
+    function deleteSession(session_id){
+      $http.delete(`/api/session/${session_id}`)
+        .then( results => {
+          console.log('Did the thing.');
+        })
+    }
+
   }
 })()
