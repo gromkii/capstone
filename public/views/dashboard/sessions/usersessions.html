@@ -1,11 +1,21 @@
 <section class="row">
   <h1 class="white text-center">My Current Sessions</h1>
   <div class="col-md-10 col-md-offset-1">
-    <ul>
-      <li ng-repeat="session in userSession.mySessions">
-        <a ng-href="/dashboard/session/{{session.id}}">{{session.session_name}}</a>
-      </li>
-    </ul>
+    <table class="table table-condensed">
+      <thead>
+        <th>Session Name</th>
+        <th>Game Name</th>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="session in userSessions.mySessions">
+          <td>{{ session.session_name }}</td>
+          <td>{{ session.game_name }}</td>
+          <td> The fuck </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </section>
 
@@ -13,11 +23,20 @@
   <div class="col-lg-10 col-lg-offset-1 col-md-12">
     <h2 class="white text-center">Hosted Sessions</h2>
       <!-- Where host_id = user_id -->
-      <ul>
-        <li ng-repeate="session in userSessions.hostedSessions">
-          <a ng-href="/dashboard/session/{{session.id}}">{{session.session_name}}</a>
-        </li>
-      </ul>
+      <table class="table table-condensed">
+        <thead>
+          <th>Session Name</th>
+          <th>Game Name</th>
+          <!-- Options -->
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="session in userSessions.hostedSessions">
+            <td>{{ session.session_name }}</td>
+            <td>{{ session.game_name }}</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </section>
 

@@ -98,7 +98,7 @@ describe('Session API Calls', ()=>{
       .expect(200)
       .end((err, res) => {
         var sessions = res.body;
-        expect(sessions.length).to.eq(1) // Current seed only has one session!
+        expect(sessions.length).to.eq(3) // Current seed only has one session!
         expect(sessions[0].users.length).to.eq(3) // First session has 3 users.
         done();
       });

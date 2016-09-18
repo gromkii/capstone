@@ -76,7 +76,8 @@ router.route('/sessions')
       });
   })
   .post((req, res) => {
-    var s = req.body;
+    var s    = req.body,
+        host = req.user ? req.user.id : req.body.user_id;
     new Session({
       session_name:s.session_name,
       game_name:s.game_name,
@@ -85,7 +86,8 @@ router.route('/sessions')
       start_date:s.start_date,
       runtime:s.runtime,
       skill_level:s.skill_level,
-      num_players:s.num_players
+      num_players:s.num_players,
+      host_id:host
     }).save()
       .then(post => {
         var id = post.toJSON().id;
