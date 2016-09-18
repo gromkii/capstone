@@ -63,7 +63,7 @@ router.route('/user/:user_id/sessions/host')
           res.json(sessions);
         })
     } else {
-      res.json({error: 'Not Logged In'});
+      res.json({error:'Not Logged In'})
     }
   })
 
@@ -94,17 +94,6 @@ router.route('/sessions')
         res.redirect(`/dashboard/session/${id}`);
       })
   });
-
-router.route('/sessions/host')
-  .get((req, res) => {
-    User
-      .fetchAll({withRelated:['hosting']})
-      .then( results => {
-        var hosts = results.toJSON();
-
-        res.json(hosts)
-      })
-  })
 
 router.route('/session/:session_id')
   .get((req, res) => {

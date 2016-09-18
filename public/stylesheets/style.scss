@@ -141,7 +141,21 @@ body{
 }
 
 .table-white {
-  background-color:#666;
+  background-color:#3e3e3e;
   color:$text;
   font-family: $rale;
+  padding:10px;
+  border-radius: 3px;
+
+  thead {
+    background-color: #333;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color:#333;
+      }
+    }
+  }
 }
