@@ -97,8 +97,8 @@ router.route('/sessions')
 
 router.route('/sessions/host')
   .get((req, res) => {
-    Session
-      .fetchAll({withRelated:['host']})
+    User
+      .fetchAll({withRelated:['hosting']})
       .then( results => {
         var hosts = results.toJSON();
 

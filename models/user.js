@@ -17,6 +17,9 @@ var User = bookshelf.Model.extend({
   },
   applications(){
     return this.belongsToMany('Application', 'approve_applications')
+  },
+  hosting(){
+    return this.hasMany('Session', 'host_id');
   }
 });
 
