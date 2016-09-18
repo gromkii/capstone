@@ -32,7 +32,6 @@
             $http.get(`/api/user/${user.id}`)
               .then( results => {
                 vm.userInfo = results.data;
-                console.log(vm.userInfo);
               })
           }
         })

@@ -9,7 +9,7 @@
   </div>
 </section>
 
-<section class="row" ng-hide="userSessions.hostedSessions.length">
+<section class="row" ng-show="userSessions.hostedSessions.length">
   <div class="col-lg-10 col-lg-offset-1 col-md-12">
     <h2 class="white text-center">Hosted Sessions</h2>
       <!-- Where host_id = user_id -->
@@ -19,4 +19,9 @@
         </li>
       </ul>
   </div>
+</section>
+
+<section class="row" ng-hide="userSessions.hostedSessions.length">
+<h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
+<h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/new">host a new session?</a></em></h5>
 </section>
