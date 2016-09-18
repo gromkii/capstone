@@ -95,6 +95,17 @@ router.route('/sessions')
       })
   });
 
+router.route('/sessions/host')
+  .get((req, res) => {
+    Session
+      .fetchAll({withRelated:['host']})
+      .then( results => {
+        var hosts = results.toJSON();
+
+        res.json(hosts)
+      })
+  })
+
 router.route('/session/:session_id')
   .get((req, res) => {
     Session
