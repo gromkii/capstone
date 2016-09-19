@@ -6,7 +6,8 @@ exports.up = function(knex, Promise) {
     table.integer('years_played').defaultsTo(0),
     table.bool('used_platform').defaultsTo('false'),
     table.integer('exp_level').defaultsTo(1),
-    table.text('application')
+    table.text('application'),
+    table.bool('approved').defaultsTo(false)
   });
 };
 

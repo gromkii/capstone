@@ -56,7 +56,7 @@ router.route('/user/:user_id/sessions/host')
     if (user) {
       Session
         .where('host_id', user)
-        .fetchAll({withRelated:['users','applications']})
+        .fetchAll({withRelated:['users','applications.users']})
         .then( results => {
           var sessions = results.toJSON();
 

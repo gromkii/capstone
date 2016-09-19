@@ -6,7 +6,7 @@ require('./session')
 var Application = bookshelf.Model.extend({
   tableName:'session_applications',
   users(){
-    return this.belongsToMany('User', 'approve_applications');
+    return this.belongsToMany('User', 'approve_applications', 'applicant_id', 'app_id');
   },
   sessions(){
     return this.belongsTo('Sessions', 'approve_applications', 'session_id');
