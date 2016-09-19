@@ -5,9 +5,9 @@ exports.up = function(knex, Promise) {
       .references('id')
       .inTable('session_applications')
       .onDelete('cascade'),
-    table.integer('host_id')
+    table.integer('session_id')
       .references('id')
-      .inTable('users')
+      .inTable('sessions')
       .onDelete('cascade'),
     table.bool('approved').defaultsTo(false);
   });
