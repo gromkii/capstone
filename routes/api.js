@@ -110,7 +110,7 @@ router.route('/session/:session_id')
       .where('id', req.params.session_id)
       .destroy()
       .then( results => {
-        res.redirect('/dashboard/users/sessions')
+        console.log(results.toJSON());
       })
   })
 

@@ -46,11 +46,13 @@
         }
       });
 
-    function deleteSession(session_id){
+    function deleteSession(session_id, index){
+      vm.hostedSessions.splice(index,1);
+
       $http.delete(`/api/session/${session_id}`)
         .then( results => {
-          console.log('Did the thing.');
-        })
+          console.log(results.data);
+        });
     }
 
   }
