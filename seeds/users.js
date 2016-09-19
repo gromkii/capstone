@@ -115,10 +115,6 @@ exports.seed = function(knex, Promise) {
         .then(() => {
           return Promise.all([
             knex('user_sessions').insert({
-              user_id:1,
-              session_id:1
-            }),
-            knex('user_sessions').insert({
               user_id:2,
               session_id:1
             }),

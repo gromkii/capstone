@@ -145,6 +145,19 @@ router.route('/application')
       })
   })
 
+router.route('/session/:session_id/applications')
+  .get((req, res) => {
+    Session
+      .where('id', req.params.session_id)
+      .fetchAll({withRelated:['applications']})
+      .then( results => {
+        if (results) {
+          res.json(results.toJSON());
+        } else {
+          res.json({error:'No applications found.'});
+        }
+      })
+  })
 
 
 module.exports = router;
