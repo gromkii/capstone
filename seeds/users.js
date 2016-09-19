@@ -101,8 +101,7 @@ exports.seed = function(knex, Promise) {
             knex('sessions').insert({
               session_name:'Steven Segall\'s Actual Life',
               game_name:'Legend of the Five Rings',
-              session_desc:'The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. You do know, you do know that they don’t want you to have lunch. I’m keeping it real with you, so what you going do is have lunch. Another one. Special cloth alert. Special cloth alert. I’m up to something.',
-              header_url:'http://stevensegallery.com/800/200',
+              session_desc:'Lion! Special cloth alert. In life there will be road blocks but we will over come it. Celebrate success right, the only way, apple. Life is what you make it, so let’s make it. Give thanks to the most high. Every chance I get, I water the plants, Lion!',
               start_date:'2016-09-07T18:25:49+00:00',
               runtime:'An Entire Lifetime',
               skill_level:2,
@@ -124,20 +123,61 @@ exports.seed = function(knex, Promise) {
               session_id:1
             }),
             knex('user_sessions').insert({
-              user_id:2,
-              session_id:2
-            }),
-            knex('user_sessions').insert({
-              user_id:3,
-              session_id:3
-            }),
-            knex('user_sessions').insert({
               user_id:3,
               session_id:1
             }),
             knex('user_sessions').insert({
               user_id:3,
-              session_id:3
+              session_id:2
+            }),
+            knex('user_sessions').insert({
+              user_id:1,
+              session_id:2
+            }),
+          ])
+        })
+    }).then(() => {
+      return knex('session_applications').del()
+        .then(() => {
+          return Promise.all([
+            knex('session_applications').insert({
+              has_played:true,
+              years_played:3,
+              used_platform:false,
+              exp_level:2,
+              application:'I\'m a bad dude with a tude.'
+            }),
+            knex('session_applications').insert({
+              exp_level:1,
+              application:'I\'m a noob.'
+            }),
+            knex('session_applications').insert({
+              has_played:true,
+              years_played:20,
+              used_platform:true,
+              exp_level:3,
+              application:'I\'m a God.'
+            })
+          ])
+        })
+    }).then(() => {
+      return knex('approve_applications').del()
+        .then(() => {
+          return Promise.all([
+            knex('approve_applications').insert({
+              app_id:1,
+              session_id:1,
+              applicant_id:3
+            }),
+            knex('approve_applications').insert({
+              app_id:2,
+              session_id:1,
+              applicant_id:2
+            }),
+            knex('approve_applications').insert({
+              app_id:3,
+              session_id:3,
+              applicant_id:1
             })
           ])
         })
