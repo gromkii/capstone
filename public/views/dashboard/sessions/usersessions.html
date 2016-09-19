@@ -49,11 +49,29 @@
         </tbody>
       </table>
 
-      <h4>Pending Applications</h4>
-        <table ng-repeat="session in userSession.hostedSessions">
-          <tr ng-repeat="application in session.applications">
-            <td ng-hide="application.approved">{{application.users[0].username}}</td>
-          </tr>
+      <h2 class="text-center white">Pending Applications</h2>
+        <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white">
+          <thead>
+            <th>Applicant</th>
+            <th>Played Before?</th>
+            <th>Years Played</th>
+            <th>Used Platform?</th>
+            <th>Experience Level</th>
+            <th>Application</th>
+            <th>Approve/Deny</th>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="application in session.applications" ng-hide="application.approved">
+              <td>{{application.users[0].username}}</td>
+              <td>{{application.has_played ? "Yes" : "No"}}</td>
+              <td>{{application.years_played}}</td>
+              <td>{{application.used_platform? "Yes" : "No"}}</td>
+              <td><img ng-src="/assets/skill/{{application.exp_level}}.png"></td>
+              <td>{{application.application}}</td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
   </div>
 </section>
