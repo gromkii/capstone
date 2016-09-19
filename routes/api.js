@@ -99,7 +99,7 @@ router.route('/session/:session_id')
   .get((req, res) => {
     Session
       .where("id", req.params.session_id)
-      .fetch({withRelated: ['users']})
+      .fetch({withRelated: ['users','host']})
       .then( session => {
         session = session.toJSON();
         res.json(session);
