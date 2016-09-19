@@ -56,7 +56,7 @@ router.route('/user/:user_id/sessions/host')
     if (user) {
       Session
         .where('host_id', user)
-        .fetchAll({withRelated:['users']})
+        .fetchAll({withRelated:['users','applications']})
         .then( results => {
           var sessions = results.toJSON();
 
@@ -142,20 +142,6 @@ router.route('/application')
         }).then( results => {
           res.redirect('/dashboard');
         })
-      })
-  })
-
-router.route('/session/:session_id/applications')
-  .get((req, res) => {
-    Session
-      .where('id', req.params.session_id)
-      .fetchAll({withRelated:['applications']})
-      .then( results => {
-        if (results) {
-          res.json(results.toJSON());
-        } else {
-          res.json({error:'No applications found.'});
-        }
       })
   })
 
