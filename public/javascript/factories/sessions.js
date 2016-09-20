@@ -12,15 +12,15 @@
     }
 
     function getSession(sessionId){
-      return $http.get(`http://localhost:3000/api/session/${sessionId}`);
+      return $http.get(`/api/session/${sessionId}`);
     }
 
     function newSession(){
-      return $http.post(`http://localhost:3000/api/sessions`)
+      return $http.post(`/api/sessions`)
     }
 
     function getUserSession(user_id){
-      return $http.get(`http://localhost:3000/api/user/${user_id}/sessions`)
+      return $http.get(`/api/user/${user_id}/sessions`)
     }
 
     return sessionObj;
