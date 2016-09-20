@@ -145,5 +145,18 @@ router.route('/application')
       })
   })
 
+router.route('/application/:application_id/approve')
+  .get((req, res) => {
+    Application
+      .where('id', req.params.application_id)
+      .fetch({withRelated:['users']})
+      .then( results => {
+        if (results) {
+          res.json(results.toJSON())
+        } else {
+          res.json({error: 'No results found.'})
+        }
+      })
+  })
 
 module.exports = router;

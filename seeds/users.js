@@ -35,6 +35,16 @@ exports.seed = function(knex, Promise) {
           created_at:'2016-09-04T23:59:40+00:00',
           updated_at:'2016-09-04T23:59:40+00:00'
         }),
+        knex('users').insert({
+          username: 'dax',
+          email:'email@mail.com',
+          avatar_url:'http://stevensegallery.com/200/200',
+          full_name:'Dax Richardson',
+          password:'$2a$08$HW7PiPKHDQU.8GMpSf2ZpelzDSA533KaFmlXyxWqOP1ZJMmHtkDvu',
+          location:'Austin, TX',
+          created_at:'2016-09-04T23:59:40+00:00',
+          updated_at:'2016-09-04T23:59:40+00:00'
+        }),
       ]);
     }).then(() => {
       return knex('user_roles').del()
@@ -153,7 +163,14 @@ exports.seed = function(knex, Promise) {
               used_platform:true,
               exp_level:3,
               application:'I\'m a God.'
-            })
+            }),
+            knex('session_applications').insert({
+              has_played:true,
+              years_played:3,
+              used_platform:true,
+              exp_level:2,
+              application:'What what up.'
+            }),
           ])
         })
     }).then(() => {
@@ -174,6 +191,11 @@ exports.seed = function(knex, Promise) {
               app_id:3,
               session_id:3,
               applicant_id:1
+            }),
+            knex('approve_applications').insert({
+              app_id:4,
+              session_id:1,
+              applicant_id:4
             })
           ])
         })
