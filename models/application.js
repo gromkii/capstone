@@ -9,7 +9,7 @@ var Application = bookshelf.Model.extend({
     return this.belongsToMany('User', 'approve_applications', 'app_id', 'applicant_id');
   },
   sessions(){
-    return this.belongsTo('Sessions', 'approve_applications', 'session_id');
+    return this.belongsToMany('Session', 'approve_applications', 'app_id', 'session_id');
   }
 });
 

@@ -162,6 +162,42 @@ router.route('/application/:application_id/approve')
       })
   })
 
+  .post((req, res) => {
+    // Update approved status
+    Application
+      .forge({
+        id:req.params.application_id
+      })
+      .fetch({withRelated:['users','sessions.users']})
+      .then( results => {
+        results.save({
+          approved:true
+        }).then( results => {
+          var a = results.toJSON();
+
+          // Add the user to the session they applied to.
+          // TODO: Only add them if there's space available.
+          knex('user_sessions').insert({
+            session_id:a.sessions[0].id,
+            user_id:a.users[0].id
+          }).then(() => {
+            console.log('Did the thing!');
+            res.json({success:"Approved Application"})
+          });
+        })
+      })
+  })
+
+router.route('/application/:application_id/deny')
+  .delete((req, res) => {
+    Application
+      .where('id', req.params.application_id)
+      .destroy()
+      .then(() => {
+        res.json({success:"Denied Application"});
+      })
+  })
+
 router.route('/user/:user_id/applications')
   .get((req, res) => {
     User

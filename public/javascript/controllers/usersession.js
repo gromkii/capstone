@@ -25,7 +25,9 @@
   function UserSessionController($http, Sessions){
     var vm = this;
 
-    vm.deleteSession = deleteSession
+    vm.deleteSession = deleteSession;
+    vm.approveApplication = approveApplication;
+    vm.denyApplication = denyApplication;
 
     // This is really ugly, but chains commands to get sessions.
     $http.get('/auth/user')
@@ -53,6 +55,30 @@
         .then( results => {
           console.log(results.data);
         });
+    }
+
+    function approveApplication(session, app_id, index){
+      console.log('Boop');
+
+
+
+      $http.post(`/api/application/${app_id}/approve`)
+        .then( results => {
+          console.log(results.data);
+        });
+
+      session.applications.splice(index,1);
+    }
+
+    function denyApplication(session, app_id, index){
+      console.log('Hey');
+
+      $http.delete(`/api/application/${app_id}/deny`)
+        .then(() => {
+          console.log("Application denied.");
+        });
+
+      session.applications.splice(index,1);
     }
 
   }

@@ -62,14 +62,18 @@
           </thead>
 
           <tbody>
-            <tr ng-repeat="application in session.applications" ng-hide="application.approved">
+            <tr ng-repeat="application in session.applications track by $index" ng-hide="application.approved">
               <td>{{application.users[0].username}}</td>
               <td>{{application.has_played ? "Yes" : "No"}}</td>
               <td>{{application.years_played}}</td>
               <td>{{application.used_platform? "Yes" : "No"}}</td>
               <td><img ng-src="/assets/skill/{{application.exp_level}}.png"></td>
               <td>{{application.application}}</td>
-              <td></td>
+              <td>
+                <!-- Make a ngClick method in the userSessions controller. -->
+                <button class="btn btn-success" ng-click="userSession.approveApplication(session, application.id, $index)">Approve</button>
+                <button class="btn btn-warning" ng-click="userSession.denyApplication(session, application.id, $index)">Deny</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -77,6 +81,6 @@
 </section>
 
 <section class="row" ng-hide="userSession.hostedSessions.length">
-<h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
-<h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/new">host a new session?</a></em></h5>
+  <h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
+  <h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/new">host a new session?</a></em></h5>
 </section>
