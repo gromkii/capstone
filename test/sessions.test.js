@@ -38,7 +38,7 @@ describe('Session API Calls', () => {
       start_date:'2016-09-07T18:25:49+00:00',
       runtime:'4-5 Hours',
       skill_level:1,
-      host_id:1,
+      user_id:1, // Sends as req.body.user_id, since there's no signed user.
       num_players:4
     }
 
@@ -51,7 +51,11 @@ describe('Session API Calls', () => {
           .get('/api/sessions')
           .expect(200)
           .end((err, res) => {
+
             var s = res.body;
+
+            console.log(s[3]);
+
             expect(s.length).to.eq(4);
             expect(s[3].session_name).to.eq('Test')
             done();
