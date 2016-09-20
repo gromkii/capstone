@@ -125,26 +125,22 @@
 <!-- User Info Modal -->
 <section id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labeledby="userModalLabel">
   <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title text-center" id="userModalLabel">{{ navbar.username }}</h4>
-    </div>
-
-    <div class="modal-body">
-      <div>
-        <img class="img-responsive" ng-src="{{navbar.userInfo.avatar_url}}">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="userModalLabel">User Profile</h4>
       </div>
-      <div>
-      <ul ng-hide="navbar.editing">
-        <li>Full Name: {{navbar.userInfo.full_name}}</li>
-        <li>Email: {{navbar.userInfo.email}}</li>
-        <li>Location: {{navbar.userInfo.location}}</li>
-      </ul>
+
+      <div class="modal-body">
+        <center>
+          <img ng-src="{{ navbar.userInfo.avatar_url }}" class="img-circle">
+        </center>
+
+        <blockquote>
+          <p>{{ navbar.userInfo.username }}</p>
+          <small><cite title="Source Title">{{ navbar.userInfo.location }} <i class="icon-map-marker"></i></cite></small>
+        </blockquote>
+      </div>
     </div>
-
   </div>
-
-
-</div>
 </section>
