@@ -15,7 +15,7 @@ var User = bookshelf.Model.extend({
     return this.belongsToMany('Session', 'user_sessions');
   },
   applications(){
-    return this.belongsToMany('Application', 'approve_applications')
+    return this.belongsToMany('Application', 'approve_applications','applicant_id', 'app_id')
   },
   hosting(){
     return this.hasMany('Session', 'host_id');

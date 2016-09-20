@@ -16,7 +16,7 @@ router.route('/users')
     var newUser = req.body,
         hash    = bcrypt.hashSync( newUser.password, 8);
 
-    new User({
+    User.forge({
       username:newUser.username,
       email:newUser.email,
       avatar_url:newUser.avatar_url,
@@ -140,7 +140,7 @@ router.route('/application')
         knex('approve_applications').insert({
           app_id:r,
           session_id:a.session_id,
-          applicant_id: user
+          applicant_id: parseInt(user)
         }).then(() => {
 
           res.redirect('/dashboard');
@@ -158,6 +158,20 @@ router.route('/application/:application_id/approve')
           res.json(results.toJSON())
         } else {
           res.json({error: 'No results found.'})
+        }
+      })
+  })
+
+router.route('/user/:user_id/applications')
+  .get((req, res) => {
+    User
+      .where('id', req.params.user_id)
+      .fetch({withRelated:['applications', 'applications.users']})
+      .then( results => {
+        if (results){
+          res.json(results.toJSON())
+        } else {
+          res.json({error:'No results found.'})
         }
       })
   })
