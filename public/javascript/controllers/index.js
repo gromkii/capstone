@@ -14,6 +14,10 @@
         controller:'IndexController',
         controllerAs:'index'
       })
+      .when('/auth/logout', {
+        templateUrl:'/views/index/logout.html',
+        controller:'LogoutController'
+      })
 
     $locationProvider.html5Mode({
       enabled:true,

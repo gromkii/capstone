@@ -9,6 +9,7 @@
       'newSession',
       'userSession',
       'searchSessions',
+      'logout',
       'Sessions',
       'Users'
      ]
