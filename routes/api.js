@@ -134,11 +134,14 @@ router.route('/application')
       application:a.application
     }).save()
       .then( results => {
-        var r = results.toJSON().id;
 
+        var r    = results.toJSON().id,
+            user = req.user ? req.user.id : req.body.user;
+            console.log(req.body, user, r);
         knex('approve_applications').insert({
           app_id:r,
-          host_id:1, // Need to insert hidden value in form.
+          session_id:a.session_id,
+          applicant_id: user // Need to insert hidden value in form.
         }).then( results => {
           res.redirect('/dashboard');
         })

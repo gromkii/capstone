@@ -102,12 +102,22 @@ body{
   justify-content: center;
   align-items: center;
   margin-top:10px;
+  overflow:hidden;
   &:hover {
     /* Rectangle 12: */
     z-index:1;
     transform: scale(1.05,1.05);
-    background-color:$purp;
     border-radius: 3px;
+    box-shadow:0 15px 15px rgba(15,15,15,.25);
+  }
+
+  .overlay {
+    opacity:.25;
+    position:absolute;
+    transition:all .5s ease;
+    &:hover {
+      opacity:.50;
+    }
   }
 }
 
@@ -139,7 +149,7 @@ body{
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+
   .skill-level{
     margin-top:15px;
     padding-top:10px;

@@ -75,13 +75,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px; }
+  margin-top: 10px;
+  overflow: hidden; }
   .options:hover {
     /* Rectangle 12: */
     z-index: 1;
     transform: scale(1.05, 1.05);
-    background-color: #AD5BF5;
-    border-radius: 3px; }
+    border-radius: 3px;
+    box-shadow: 0 15px 15px rgba(15, 15, 15, 0.25); }
+  .options .overlay {
+    opacity: .25;
+    position: absolute;
+    transition: all .5s ease; }
+    .options .overlay:hover {
+      opacity: .50; }
 
 .session-view {
   padding: 0 250px; }
