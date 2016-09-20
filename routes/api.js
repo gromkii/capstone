@@ -78,7 +78,7 @@ router.route('/sessions')
   .post((req, res) => {
     var s    = req.body,
         host = req.user ? req.user.id : req.body.user_id;
-    new Session({
+    Session.forge({
       session_name:s.session_name,
       game_name:s.game_name,
       session_desc:s.session_desc,

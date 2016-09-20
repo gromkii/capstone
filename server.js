@@ -70,8 +70,8 @@ function auth(req, res, next){
 }
 
 // --- Routing --- //
-app.use('/api', api);
-app.use('/auth', auth);
+app.use('/api', api)
+  .use('/auth', auth);
 
 app.get('/dashboard', auth, (req, res, next) => {
 
