@@ -38,7 +38,7 @@
 
         <tbody>
           <tr ng-repeat="session in userSession.hostedSessions track by $index">
-            <td>{{ session.session_name }}</td>
+            <td><a ng-href="/dashboard/session/{{session.id}}">{{ session.session_name }}</a></td>
             <td>{{ session.game_name }}</td>
             <td>{{ session.num_players - session.users.length }}</td>
             <td>
