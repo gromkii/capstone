@@ -126,11 +126,20 @@ body{
   margin:20px;
 }
 
+.session-cover {
+  margin:50px 0 25px 0;
+  height:250px;
+  width:100%;
+  background-size: cover;
+  border-radius: 5px;
+}
+
 .session-header {
   color:$text;
   display: flex;
   flex-direction: row;
   align-items: center;
+  
   .skill-level{
     margin-top:15px;
     padding-top:10px;

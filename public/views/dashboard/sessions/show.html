@@ -1,41 +1,39 @@
 <section class="session-view">
   <section class="row">
     <div class="col-md-12">
-      <img class="img-responsive header-img" ng-src="{{ session.info.header_url }}">
+      <div class="session-cover" ng-style="{'background-image': 'url(' + session.info.header_url + ')'}">
     </div>
   </section>
 
   <section class="row session-header">
     <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-5">
-          <!-- Session Name -->
-          <h2>{{ session.info.session_name }}</h2>
-        </div>
-        <div class="col-md-4">
-          <!-- Game Name -->
-          <h2>{{ session.info.game_name }}</h2>
-        </div>
-        <div class="col-md-1">
-          <!-- Skill Level 1/2/3.png -->
-          <img ng-src="{{ session.sessionSkill(session.info.skill_level) }}">
+      <table class="table flex-em">
+        <tbody>
+          <tr valign="middle">
+            <td><h4 class="white">{{ session.info.session_name}}</h4></td>
+            <td><h4 class="white">{{ session.info.game_name }}</h4></td>
+            <td><h4 class="text-center"><img ng-src="/assets/skill/{{session.info.skill_level}}.png"></h4></td>
+            <td class="text-right"><h4>{{ session.info.host.username }}</h4></td>
+          </tr>
+        </tbody>
+      </table>
 
-        </div>
-        <div class="col-md-2 name">
-          <!-- Host Name, Opens Modal -->
-          <h4>{{session.info.host.username}}</a></h4>
-
-        </div>
-      </div>
       <div class="row">
         <div class="col-md-3">
           <!-- Session Members -->
-          <ul>
-            <li ng-repeat="player in session.info.users">{{player.username}}</li>
-          </ul>
+          <table class="table table-condensed table-white">
+            <thead>
+              <th>Current Members</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="player in session.info.users">
+                <td>{{player.username}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-md-7">
-          <!-- Session Description -->
+          <h3 class="white">Session Description</h3>
           <p>{{session.info.session_desc}}</p>
 
         </div>
