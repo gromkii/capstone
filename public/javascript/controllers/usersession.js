@@ -53,7 +53,7 @@
 
       $http.delete(`/api/session/${session_id}`)
         .then( results => {
-          console.log(results.data);
+
         });
     }
 
