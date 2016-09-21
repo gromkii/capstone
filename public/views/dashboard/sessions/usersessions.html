@@ -49,8 +49,8 @@
         </tbody>
       </table>
 
-      <h2 class="text-center white" ng-show="userSessions.hostedSessions.length">Pending Applications</h2>
-        <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-show="userSessions.hostedSessions.length">
+      <h2 class="text-center white" ng-hide="userSessions.hostedSessions.length">Pending Applications</h2>
+        <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-hide="userSessions.hostedSessions.length">
           <thead>
             <th>Applicant</th>
             <th>Played Before?</th>

@@ -82,7 +82,8 @@ body {
     z-index: 1;
     transform: scale(1.05, 1.05);
     border-radius: 3px;
-    box-shadow: 0 15px 15px rgba(15, 15, 15, 0.25); }
+    box-shadow: 0 15px 15px rgba(15, 15, 15, 0.25);
+    background-color: #AD5BF5; }
   .options .overlay {
     opacity: .25;
     position: absolute;
