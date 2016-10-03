@@ -5,14 +5,14 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'capstone'
+      database: 'lfg_dev'
     }
   },
 
   testing: {
     client:'postgresql',
     connection: {
-      database: 'capstone_test'
+      database: 'lfg_test'
     }
   },
 
